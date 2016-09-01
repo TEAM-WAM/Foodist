@@ -1,0 +1,2 @@
+class ListExperiencesController < ApplicationController
+end
