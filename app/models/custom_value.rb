@@ -1,0 +1,2 @@
+class CustomValue < ApplicationRecord
+end
