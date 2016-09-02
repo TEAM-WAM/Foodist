@@ -3,8 +3,7 @@ class CreateGroups < ActiveRecord::Migration[5.0]
     create_table :groups do |t|
       t.string :name, null: false, limit: 50
       t.text :description, null: false, limit: 300
-      t.integer :create_id, null: false
-      t.integer :member_id, null: false
+      t.integer :creator_id, null: false
 
       t.timestamps null: false
     end

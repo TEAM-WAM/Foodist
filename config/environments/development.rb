@@ -40,6 +40,8 @@ Rails.application.configure do
   # Default Mailer -- UPDATE FOR HEROKU
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  config.active_record.time_zone_aware_types = [:datetime, :time]
+
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.

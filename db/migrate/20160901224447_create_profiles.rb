@@ -1,12 +1,12 @@
 class CreateProfiles < ActiveRecord::Migration[5.0]
   def change
     create_table :profiles do |t|
-      t.text :bio, null: false, limit: 300
-      t.string :zipcode, null: false, limit: 10
-      t.date :birthday, null: false
-      t.string :phone_number, null: false, limit: 16
-      t.string :gender, null: false, limit: 50
-      t.string :image, null: false
+      t.text :bio, limit: 300
+      t.string :zipcode, limit: 10
+      t.date :birthday
+      t.string :phone_number, limit: 16
+      t.string :gender, limit: 50
+      t.string :image
       t.integer :user_id, null: false
 
       t.timestamps null: false
