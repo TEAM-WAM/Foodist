@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 User.destroy_all
 List.destroy_all
 Group.destroy_all
