@@ -13,16 +13,13 @@ ListExperience.destroy_all
 CustomField.destroy_all
 CustomValue.destroy_all
 
-# Zomato API wrapper
-# zomato = Zomato::Base.new('f5e327252d7eaeb8a135c2804646707d')
-
 # Create 3 users for Team WAM
 amir = User.create!(username: "atawfik", first_name: "Amir", last_name: "Tawfik", password: "password", email: "amir@gmail.com")
 myra = User.create!(username: "momo", first_name: "Myra", last_name: "Orgain", password: "123456", email: "myra@gmail.com")
 walter = User.create!(username: "wchabla", first_name: "Walter", last_name: "Chabla", password: "mr.white", email: "walter@gmail.com")
 
 # Create 20 random users
-20.times do 
+20.times do
      User.create!(username: Faker::Internet.user_name, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "password", email: Faker::Internet.email)
 end
 
@@ -54,25 +51,29 @@ bobafans.members.push(amir, walter)
 # Create Amir's specialty restaurant
 amirsowl = Restaurant.create!( name: "Amir's SowlFood",
                     restaurant_url: "www.amirsowl.com",
-                    address: "14 amir st, Amir, Ny",
+                    address: "14 Amir st., Amir, NY",
                     locality: "Chelsea",
                     city: "New York",
                     zipcode: "10023",
                     average_cost_for_two: "40",
                     featured_img: "./image/ChickenPotPie.png",
-                    menu_url: "www.Amirsoul.com/menu",
+                    menu_url: "www.Amirsowl.com/menu",
                     has_online_delivery: "no",
                     cuisines: "cheap",
                     phone_numbers: "888-555-4455"
                     )
 
 # Seed featured restaurants
-# featured_restaurants = Zomato::Restaurant.search(entity_id: 280, entity_type: 'city', collection_id: '1')
+require_relative '../lib/api.rb'
+include Zomato
+
 featured_restaurants = Zomato::API.new(280, 'city', '1')
 featured_restaurants.request_data
+
 puts
 p featured_restaurants
 puts
+
 featured_restaurants.map do |restaurant|
      Restaurant.create!( name: restaurant.restaurants.name,
                     restaurant_url: restaurant.restaurants.url,
