@@ -50,14 +50,14 @@ bobafans.members.push(amir, walter)
 
 # Create Amir's specialty restaurant
 amirsowl = Restaurant.create!( name: "Amir's SowlFood",
-                    restaurant_url: "www.amirsowl.com",
+                    restaurant_url: "https://www.amirsowl.com",
                     address: "14 Amir st., Amir, NY",
                     locality: "Chelsea",
                     city: "New York",
                     zipcode: "10023",
                     average_cost_for_two: "40",
                     featured_img: "./image/ChickenPotPie.png",
-                    menu_url: "www.Amirsowl.com/menu",
+                    menu_url: "https://www.Amirsowl.com/menu",
                     has_online_delivery: "no",
                     cuisines: "cheap",
                     restaurant_id: "123"
@@ -94,7 +94,8 @@ a_list.restaurants << amirsowl
 a_list.list_restaurants.first.update(cuisine: "Southern Comfort Food", fav_dish: "Fried Green Tomatoes", restaurant_type: "SowlFood", location: "NYC", tried: true)
 
 # Add an Experience to a Listed Restaurant
-a_list.list_restaurants.first.list_experiences.create!( main_dish: "Chicken Pot Pie",
+a_list.list_restaurants.first.list_experiences.create!(date_of_experience: "01/03/2015",
+                                                       main_dish: "Chicken Pot Pie",
                                                        price: 24,
                                                        party_size: 2,
                                                        time_seated: 45,
