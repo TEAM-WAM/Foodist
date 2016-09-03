@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160902193732) do
   end
 
   create_table "list_experiences", force: :cascade do |t|
+    t.date     "date_of_experience",             null: false
     t.string   "main_dish",          limit: 100
     t.integer  "price"
     t.integer  "party_size"
@@ -69,6 +70,7 @@ ActiveRecord::Schema.define(version: 20160902193732) do
   end
 
   create_table "list_restaurants", force: :cascade do |t|
+    t.string   "name",            limit: 100, null: false
     t.string   "cuisine",         limit: 100
     t.string   "fav_dish",        limit: 100
     t.string   "restaurant_type", limit: 100
@@ -94,32 +96,32 @@ ActiveRecord::Schema.define(version: 20160902193732) do
     t.date     "birthday"
     t.string   "phone_number", limit: 16
     t.string   "gender",       limit: 50
-    t.string   "image"
-    t.integer  "user_id",                 null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "image",                   default: "assets/images/profile_apple.jpg"
+    t.integer  "user_id",                                                             null: false
+    t.datetime "created_at",                                                          null: false
+    t.datetime "updated_at",                                                          null: false
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.string   "name",                 null: false
+    t.string   "name",                 limit: 100, null: false
     t.string   "restaurant_url"
-    t.string   "address"
-    t.string   "locality"
-    t.string   "city"
-    t.string   "zipcode"
-    t.string   "average_cost_for_two"
+    t.string   "address",              limit: 200, null: false
+    t.string   "locality",             limit: 100
+    t.string   "city",                 limit: 100, null: false
+    t.string   "zipcode",              limit: 10
+    t.string   "average_cost_for_two", limit: 10
     t.string   "featured_img"
     t.string   "menu_url"
     t.boolean  "has_online_delivery"
     t.string   "cuisines"
     t.string   "restaurant_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",               limit: 50,               null: false
-    t.string   "first_name",             limit: 50,               null: false
+    t.string   "username",               limit: 100,              null: false
+    t.string   "first_name",             limit: 100,              null: false
     t.string   "last_name",              limit: 100,              null: false
     t.string   "email",                              default: "", null: false
     t.string   "encrypted_password",                 default: "", null: false

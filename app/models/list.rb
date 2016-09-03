@@ -8,7 +8,6 @@ class List < ApplicationRecord
   has_many :restaurants, through: :list_restaurants
 
   validates :title, :listable_id, :listable_type, presence: true
-  validates_associated :users
-  validates :title, length { maximum: 100 }
+  validates :title, length: { maximum: 100 }
 
 end
