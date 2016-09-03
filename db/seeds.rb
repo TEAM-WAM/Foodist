@@ -88,10 +88,43 @@ featured_restaurants.response["restaurants"].map do |restaurant|
 end
 
 # Adding Restaurants to a List
-a_list << amirsowl
+a_list.restaurants << amirsowl
 
 # Update Listed Restaurant's columns
-a_list.list_restaurant.last.update(cuisine: "Southern Comfort Food", fav_dish: "Fried Green Tomatoes", restaurant_type: "SowlFood", location: "NYC", tried: true)
+a_list.list_restaurants.first.update(cuisine: "Southern Comfort Food", fav_dish: "Fried Green Tomatoes", restaurant_type: "SowlFood", location: "NYC", tried: true)
 
 # Add an Experience to a Listed Restaurant
-# a_list.list_restaurants.last.list_experiences
+a_list.list_restaurants.first.list_experiences.create!( main_dish: "Chicken Pot Pie",
+                                                       price: 24,
+                                                       party_size: 2,
+                                                       time_seated: 45,
+                                                       time_waiting: 30,
+                                                       notes: "They don't let you take away leftovers so order just the right amount next time. Also, better to come a little early to avoid the wait time."
+                                                       )
+
+# Add a custom field to Amir's List
+a_list.list_restaurants.first.custom_fields.create!( field_name: "Spice Meter")
+
+# Add a custom value under the custom field in Amir's List
+a_list.list_restaurants.first.list_experiences.first.custom_values.create!( field_value: "8/10", custom_field_id: CustomField.last.id)
+
+# Leave a comment on Amir's List
+a_list.comments.create!( body: "This is such a cool list, Amir! I love it. I'm going to share it with every single person I know. :)", user_id: myra.id)
+
+# 2 Votes on Amir's List
+a_list.votes.create!(up: true, user_id: myra.id)
+a_list.votes.create!(up: true, user_id: walter.id)
+
+# 2 Votes on Amir's Restaurant
+amirsowl.votes.create!(up: true, user_id: myra.id)
+amirsowl.votes.create!(up: true, user_id: walter.id)
+
+# 1000 Votes randomly distributed over the all Restaurants, Lists, and Comments.
+1000.times do
+     types = [Restaurant.all, List.all, Comment.all].sample
+     Vote.create!( up: true,
+                   user_id: User.all.sample.id,
+                   voteable_type: types.first.class.name,
+                   voteable_id: types.sample.id
+                   )
+end
