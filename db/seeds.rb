@@ -60,7 +60,7 @@ amirsowl = Restaurant.create!( name: "Amir's SowlFood",
                     menu_url: "www.Amirsowl.com/menu",
                     has_online_delivery: "no",
                     cuisines: "cheap",
-                    phone_numbers: "888-555-4455"
+                    restaurant_id: "123"
                     )
 
 # Seed featured restaurants
@@ -70,23 +70,20 @@ include Zomato
 featured_restaurants = Zomato::API.new(280, 'city', '1')
 featured_restaurants.request_data
 
-puts
-p featured_restaurants
-puts
-
-featured_restaurants.map do |restaurant|
-     Restaurant.create!( name: restaurant.restaurants.name,
-                    restaurant_url: restaurant.restaurants.url,
-                    address: restaurant.restaurants.location.address,
-                    locality: restaurant.restaurants.location.locality,
-                    city: restaurant.restaurants.location.city,
-                    zipcode: restaurant.restaurants.location.zipcode,
-                    average_cost_for_two: restaurant.restaurants.average_cost_for_two,
-                    featured_img: restaurant.restaurants.featured_image,
-                    menu_url: restaurant.restaurants.menu_url,
-                    has_online_delivery: restaurant.restaurants.has_online_delivery,
-                    cuisines: restaurant.restaurants.cuisines,
-                    phone_numbers: restaurant.restaurants.phone_numbers
+featured_restaurants.response["restaurants"].map do |restaurant|
+    rest = restaurant["restaurant"]
+    Restaurant.create!( name: rest["name"],
+                    restaurant_url: rest["url"],
+                    address: rest["location"]["address"],
+                    locality: rest["location"]["locality"],
+                    city: rest["location"]["city"],
+                    zipcode: rest["location"]["zipcode"],
+                    average_cost_for_two: rest["average_cost_for_two"],
+                    featured_img: rest["featured_image"],
+                    menu_url: rest["menu_url"],
+                    has_online_delivery: rest["has_online_delivery"],
+                    cuisines: rest["cuisines"],
+                    restaurant_id: rest["id"]
                     )
 end
 
