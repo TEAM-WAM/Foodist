@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(version: 20160902193732) do
 
   create_table "lists", force: :cascade do |t|
     t.string   "title",         limit: 100, null: false
-    t.integer  "listable_id",               null: false
     t.string   "listable_type",             null: false
+    t.integer  "listable_id",               null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
