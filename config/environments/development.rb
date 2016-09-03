@@ -42,6 +42,8 @@ Rails.application.configure do
 
   config.active_record.time_zone_aware_types = [:datetime, :time]
 
+  Encoding.default_external = "UTF-8"
+
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.

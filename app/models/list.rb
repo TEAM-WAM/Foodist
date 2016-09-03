@@ -6,4 +6,9 @@ class List < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :votes, as: :voteable
   has_many :restaurants, through: :list_restaurants
+
+  validates :title, :listable_id, :listable_type, presence: true
+  validates_associated :users
+  validates :title, length { maximum: 100 }
+
 end
