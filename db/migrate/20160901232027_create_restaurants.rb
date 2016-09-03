@@ -12,7 +12,7 @@ class CreateRestaurants < ActiveRecord::Migration[5.0]
       t.string :menu_url
       t.boolean :has_online_delivery
       t.string :cuisines
-      t.string :phone_numbers
+      t.string :restaurant_id
 
       t.timestamps null: false
     end

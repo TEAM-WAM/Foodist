@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20160902193732) do
     t.string   "menu_url"
     t.boolean  "has_online_delivery"
     t.string   "cuisines"
-    t.string   "phone_numbers"
+    t.string   "restaurant_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
