@@ -42,6 +42,6 @@ amirsowl = Restaurant.create!( name: "Amir's SowlFood",
                     phone_numbers: "888-555-4455"
                     )
 
-a_list << amirsowl
-a_list.list_restaurant.last.update(cuisine: "german", fav_dish: "snails", restaurant_type: "SowlFood", location: "nyc", tried: true)
+# a_list << amirsowl
+# a_list.list_restaurant.last.update(cuisine: "german", fav_dish: "snails", restaurant_type: "SowlFood", location: "nyc", tried: true)
 # a_list.list_restaurants.last.list_experiences
