@@ -2,6 +2,8 @@ module Zomato
 
     class API
 
+        attr_accessor :response
+
         include HTTParty
         format :json
         base_uri 'https://developers.zomato.com/api/v2.1'
@@ -15,10 +17,10 @@ module Zomato
         def request_data
         	@response = self.class.get("/search", :query => @options, :headers => @headers)
         	json = JSON.parse(@response.body)
-        	puts json['response.body']
+        	json['response.body']
         end
+
 
     end
 
 end
-
