@@ -1,3 +1,37 @@
 // Place all the styles related to the root controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#nav-bar li:last-child {
+  float: right;
+  margin-right: 8px;
+}
+
+#nav-bar ul {
+    list-style-type: none;
+    margin-top: 0%;
+    overflow: hidden;
+    background-color: black;
+}
+
+#nav-bar li {
+    float: left;
+}
+
+#nav-bar li a {
+    display: block;
+    color: #00ffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+#nav-bar li a:hover {
+    background-color: #420d70;
+}
+
+#title {
+  text-align: center;
+  margin: auto;
+}
