@@ -6,7 +6,7 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
       t.date :birthday
       t.string :phone_number, limit: 16
       t.string :gender, limit: 50
-      t.string :image, default: assets/images/profile_apple.jpg
+      t.string :image, default: 'assets/images/profile_apple.jpg'
       t.integer :user_id, null: false
 
       t.timestamps null: false
