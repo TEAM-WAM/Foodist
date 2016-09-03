@@ -1,6 +1,5 @@
 class Vote < ApplicationRecord
-  belongs_to :comment
-  belongs_to :list
-  belongs_to :restaurant
   belongs_to :voteable, polymorphic: true
+
+  validates :voteable_type, :voteable_id, presence: true
 end

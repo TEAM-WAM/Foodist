@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20160902193732) do
 
   create_table "custom_fields", force: :cascade do |t|
     t.string   "field_name",            limit: 100, null: false
-    t.integer  "restaurant_id",                     null: false
     t.string   "customable_field_type",             null: false
     t.integer  "customable_field_id",               null: false
     t.datetime "created_at",                        null: false
@@ -61,8 +60,8 @@ ActiveRecord::Schema.define(version: 20160902193732) do
     t.string   "main_dish",          limit: 100
     t.integer  "price"
     t.integer  "party_size"
-    t.time     "time_seated"
-    t.time     "time_waiting"
+    t.integer  "time_seated"
+    t.integer  "time_waiting"
     t.text     "notes"
     t.integer  "list_restaurant_id",             null: false
     t.datetime "created_at",                     null: false
@@ -83,8 +82,8 @@ ActiveRecord::Schema.define(version: 20160902193732) do
 
   create_table "lists", force: :cascade do |t|
     t.string   "title",         limit: 100, null: false
-    t.integer  "listable_id",               null: false
     t.string   "listable_type",             null: false
+    t.integer  "listable_id",               null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -113,7 +112,7 @@ ActiveRecord::Schema.define(version: 20160902193732) do
     t.string   "menu_url"
     t.boolean  "has_online_delivery"
     t.string   "cuisines"
-    t.string   "phone_numbers"
+    t.string   "restaurant_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
@@ -147,6 +146,7 @@ ActiveRecord::Schema.define(version: 20160902193732) do
     t.boolean  "up"
     t.string   "voteable_type", null: false
     t.integer  "voteable_id",   null: false
+    t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

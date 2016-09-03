@@ -1,8 +1,8 @@
 class DeviseCreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
-      t.string :username, null: false, limit: 50
-      t.string :first_name, null: false, limit: 50
+      t.string :username, null: false, limit: 100
+      t.string :first_name, null: false, limit: 100
       t.string :last_name, null: false, limit: 100
 
       ## Database authenticatable
