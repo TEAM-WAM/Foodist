@@ -4,8 +4,8 @@ class CreateListExperiences < ActiveRecord::Migration[5.0]
       t.string :main_dish, limit: 100
       t.integer :price
       t.integer :party_size
-      t.time :time_seated
-      t.time :time_waiting
+      t.integer :time_seated
+      t.integer :time_waiting
       t.text :notes, limit: 200
       t.integer :list_restaurant_id, null: false
 
@@ -13,3 +13,4 @@ class CreateListExperiences < ActiveRecord::Migration[5.0]
     end
   end
 end
+
