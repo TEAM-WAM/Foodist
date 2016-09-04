@@ -1,0 +1,59 @@
+<section id="portfolio">
+
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+              <%= link_to 'Edit Profile', edit_profile_path(current_user), class: 'btn btn-success btn-xs' %>
+              <hr class="star-primary">
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4 portfolio-item">
+          <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+              <div class="caption">
+                  <div class="caption-content">
+                      <i class="fa fa-search-plus fa-3x"></i>
+                  </div>
+              </div>
+              <img src=<%= @profile.avatar.url %> class="img-responsive" alt="">
+          </a>
+          <div>
+            <h4>A little about me...</h4>
+            <p><%= @profile.bio %></p>
+          </div>
+        </div>
+
+        <div class="col-sm-4 portfolio-item">
+          <div class="caption">
+              <div class="caption-content">
+                  <i class="fa fa-search-plus fa-3x"></i>
+              </div>
+          </div>
+          <h4>My Lists</h4>
+          <div class="list-group">
+            <% @user.lists.each do |list|%>
+              <span class="list-group-item"><%= link_to list.title, list_path(list.id) %></span>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-sm-4 portfolio-item">
+          <div class="caption">
+              <div class="caption-content">
+                  <i class="fa fa-search-plus fa-3x"></i>
+              </div>
+          </div>
+          <h4>My Groups</h4>
+          <div class="list-group">
+            <% @user.groups.each do |group|%>
+              <span class="list-group-item"><%= link_to group.name, group_path(group.id) %></span>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+
+  </div>
+</section>
