@@ -1,0 +1,79 @@
+<section id="portfolio">
+
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+              <%= link_to 'Edit Profile', edit_profile_path(current_user), class: 'btn btn-success btn-xs' %>
+              <hr class="star-primary">
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4 portfolio-item">
+          <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+              <div class="caption">
+                  <div class="caption-content">
+                      <i class="fa fa-search-plus fa-3x"></i>
+                  </div>
+              </div>
+              <img src=<%= @profile.avatar.url %> class="img-responsive" alt="">
+          </a>
+          <div>
+            <h4>A little about me...</h4>
+            <p><%= @profile.bio %></p>
+          </div>
+        </div>
+
+        <div class="col-sm-4 portfolio-item">
+          <div class="caption">
+              <div class="caption-content">
+                  <i class="fa fa-search-plus fa-3x"></i>
+              </div>
+          </div>
+          <h4>My Lists <%= link_to new_list_path, class: 'btn btn-success btn-xs' do %>
+            <i class="glyphicon glyphicon-plus"></i>
+          <% end %>
+          </h4>
+          <div class="list-group">
+            <% @user.lists.each do |list|%>
+              <span class="list-group-item"><%= link_to list.title, list_path(list.id) %></span>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-sm-4 portfolio-item">
+          <div class="caption">
+              <div class="caption-content">
+                  <i class="fa fa-search-plus fa-3x"></i>
+              </div>
+          </div>
+          <h4>My Groups <%= link_to new_group_path, class: 'btn btn-success btn-xs' do %>
+            <i class="glyphicon glyphicon-plus"></i>
+          <% end %></h4>
+          <div class="list-group">
+            <% @user.groups.each do |group|%>
+              <span class="list-group-item"><%= link_to group.name, group_path(group.id) %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <h3>My Stats</h3>
+        <div class="col-sm-4 portfolio-item">
+          <h4>Total Lists Created</h4>
+          <%= @user.lists.count %>
+        </div>
+        <div class="col-sm-4 portfolio-item">
+          <h4>Total Groups Created</h4>
+          <%= @user.created_groups.count %>
+        </div>
+        <div class="col-sm-4 portfolio-item">
+          <h4>Total Votes Given</h4>
+          <%= Vote.where(user_id: @user.id ).count %>
+        </div>
+      </div>
+
+  </div>
+</section>

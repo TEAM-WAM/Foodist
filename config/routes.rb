@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :restaurants, only: [:index, :show, :create, :update]
   resources :groups, :users
+  resources :profiles, only: [:show, :edit, :update]
 
   resources :lists do
     resources :list_restaurants, only: [:show, :create, :update, :destroy] do
@@ -12,6 +13,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, :only => [:show]
+  # resources :users, :only => [:show] #This line is redundant?
 
 end
