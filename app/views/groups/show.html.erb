@@ -1,0 +1,9 @@
+<div class="groups">
+
+  <h1><%= @group.name %></h1>
+
+  <b>Create by: <em><%= User.find(@group.creator_id).username %></em></b>
+
+  <p><b>Group Description:</b> <%= @group.description %></p>
+
+</div>
