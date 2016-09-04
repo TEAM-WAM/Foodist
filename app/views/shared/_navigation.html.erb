@@ -1,0 +1,45 @@
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container">
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+      </button>
+      <a class="navbar-brand" href="/">Foodist</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="hidden">
+                <a href="#page-top"></a>
+            </li>
+            <% if user_signed_in? %>
+            <li class="page-scroll">
+                <%= link_to @user.first_name, profile_path(current_user) %>
+            </li>
+            <li class="page-scroll">
+                <%= link_to 'Groups', groups_path %>
+            </li>
+            <li class="page-scroll">
+                <%= link_to 'Lists', lists_path %>
+            </li>
+            <li class="page-scroll">
+                <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li class="page-scroll">
+                <%= link_to 'Groups', groups_path %>
+            </li>
+            <li class="page-scroll">
+                <%= link_to 'Lists', lists_path %>
+            </li>
+            <li class="page-scroll">
+                <%= link_to 'Register', new_user_registration_path %>
+            </li>
+            <li class="page-scroll">
+                <%= link_to 'Log In', new_user_session_path %>
+            </li>
+          <% end %>
+        </ul>
+     </div>
+  </div>
+</nav>
