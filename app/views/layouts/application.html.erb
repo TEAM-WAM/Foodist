@@ -1,27 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Foodist</title>
+    <meta charset="utf-8">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'favicon/fork-knife.ico' %>
+
+    <!-- Bootstrap -->
+    <link href="vendor/assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="vendor/assets/stylesheets/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
   </head>
 
-  <body>
-    <nav id='nav-bar'>
-      <ul>
-        <li><%= link_to 'FoodIst', root_path %></li>
-        <li><%= link_to 'Groups', %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to 'Profile', user_path(current_user) %></li>
-          <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li> <%= link_to 'Register', new_user_registration_path %></li>
-          <li> <%= link_to 'Log In', new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </nav>
+
+  <body id="page-top" class="index">
+
+  <%= render 'shared/navigation' %>
+
+  <header>
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12">
+                  <img class="img-responsive" src="img/profile.png" alt="">
+                  <div class="intro-text">
+                      <span class="name">Foodist</span>
+                      <hr class="star-light">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
+
     <%= yield %>
+
   </body>
 </html>
