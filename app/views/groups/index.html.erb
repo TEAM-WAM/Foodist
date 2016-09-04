@@ -1,0 +1,21 @@
+<div class='groups'>
+
+  <h1>Groups</h1>
+
+  <h3>All groups that have been created:</h3>
+
+  <%= link_to 'Create a new Group', new_group_path %>
+
+    <ul id='groups-list'>
+      <% @groups.order('created_at DESC').each do |group| %>
+        <div id='group-box'>
+          <h3><%= link_to group.name, group_path(group) %></h3>
+          <div class="">
+            <%= image_tag group.avatar.url, size: '100x100'%>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+
+
+</div>
