@@ -31,7 +31,10 @@
                   <i class="fa fa-search-plus fa-3x"></i>
               </div>
           </div>
-          <h4>My Lists</h4>
+          <h4>My Lists <%= link_to new_list_path, class: 'btn btn-success btn-xs' do %>
+            <i class="glyphicon glyphicon-plus"></i>
+          <% end %>
+          </h4>
           <div class="list-group">
             <% @user.lists.each do |list|%>
               <span class="list-group-item"><%= link_to list.title, list_path(list.id) %></span>
@@ -45,14 +48,31 @@
                   <i class="fa fa-search-plus fa-3x"></i>
               </div>
           </div>
-          <h4>My Groups</h4>
+          <h4>My Groups <%= link_to new_group_path, class: 'btn btn-success btn-xs' do %>
+            <i class="glyphicon glyphicon-plus"></i>
+          <% end %></h4>
           <div class="list-group">
             <% @user.groups.each do |group|%>
               <span class="list-group-item"><%= link_to group.name, group_path(group.id) %></span>
             <% end %>
           </div>
         </div>
+      </div>
 
+      <div class="row">
+        <h3>My Stats</h3>
+        <div class="col-sm-4 portfolio-item">
+          <h4>Total Lists Created</h4>
+          <%= @user.lists.count %>
+        </div>
+        <div class="col-sm-4 portfolio-item">
+          <h4>Total Groups Created</h4>
+          <%= @user.created_groups.count %>
+        </div>
+        <div class="col-sm-4 portfolio-item">
+          <h4>Total Votes Given</h4>
+          <%= Vote.where(user_id: @user.id ).count %>
+        </div>
       </div>
 
   </div>
