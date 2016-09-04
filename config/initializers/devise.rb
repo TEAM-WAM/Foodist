@@ -138,9 +138,6 @@ Devise.setup do |config|
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
 
-  # secret key
-  config.secret_key = ENV[DEVISE_KEY]
-
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
   # config.remember_for = 2.weeks
