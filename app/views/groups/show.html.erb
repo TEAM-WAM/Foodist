@@ -2,8 +2,16 @@
 
   <h1><%= @group.name %></h1>
 
+   <%= image_tag @group.avatar.url, :size => "100x100"   %><br>
+
   <b>Create by: <em><%= User.find(@group.creator_id).username %></em></b>
 
   <p><b>Group Description:</b> <%= @group.description %></p>
+
+  <b>Followers:</b><em><%= @group.members.count %></em><br><br>
+
+  <% if current_user.id != @group.creator_id %>
+    <%= link_to "Join Group", :controller => :groups, :action => :add, group_id: @group.id, user_id: current_user.id %>
+  <% end %>
 
 </div>

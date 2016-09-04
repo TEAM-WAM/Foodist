@@ -1,0 +1,21 @@
+<div class="">
+
+    <h1>Create New Group</h1>
+
+  <%= form_for @group, html: { multipart: true } do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %><br>
+
+    <%= f.hidden_field :creator_id, :value => current_user.id %>
+
+    <%= f.label :avatar  %>
+    <%= f.file_field :avatar %><br>
+
+    <%= f.submit 'Create Group' %>
+
+  <% end %>
+
+</div>
