@@ -1,26 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Foodist</title>
+    <meta charset="utf-8">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'fork-knife.ico' %>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
   </head>
 
   <body>
+
     <nav id='nav-bar'>
       <ul>
-        <li><%= link_to 'FoodIst', root_path %></li>
+        <li><%= link_to 'Foodist', root_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to 'Profile', user_path(current_user) %></li>
+          <li><%= link_to 'Groups', groups_path %></li>
+          <li><%= link_to 'Lists', lists_path %></li>
           <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
         <% else %>
+          <li><%= link_to 'Groups', groups_path %></li>
+          <li><%= link_to 'Lists', lists_path %></li>
           <li> <%= link_to 'Register', new_user_registration_path %></li>
           <li> <%= link_to 'Log In', new_user_session_path %></li>
         <% end %>
       </ul>
     </nav>
+
     <%= yield %>
+
   </body>
 </html>
