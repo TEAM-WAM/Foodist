@@ -44,6 +44,9 @@ Rails.application.configure do
 
   Encoding.default_external = "UTF-8"
 
+  # Paperclip configuration
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
