@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users
 
-  get '/add', to: "groups#add"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'root#index'
+  get '/add', to: "groups#add"
+  get '/search', to: "root#search"
+  get '/lists/j/trending', to: 'lists#trending'
 
   resources :restaurants, only: [:index, :show, :create, :update]
   resources :groups, :users
@@ -14,7 +16,5 @@ Rails.application.routes.draw do
       resources :list_experiences,  only: [:show, :create, :update, :destroy]
     end
   end
-
-  # resources :users, :only => [:show] #This line is redundant?
 
 end
