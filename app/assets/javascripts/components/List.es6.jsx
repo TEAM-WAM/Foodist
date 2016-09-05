@@ -4,15 +4,22 @@ constructor(){
   this.state = {
     showChildren: false
   }
+
 }
 
 toggleChildren(){
   this.setState({showChildren: !this.state.showChildren})
 }
+
+
+
+
+
+
   render(){
 
     return(
-      <div className="List">
+      <div value={this.props.dataId} onDragEnd={this.props.dropObject.bind(this)} draggable= 'true' onDragStart={this.props.draggingObject.bind(this)} className="List">
         <h3>{this.props.data.title}</h3>{this.state.showChildren ?<span onClick={this.toggleChildren.bind(this)}>A</span>:<span onClick={this.toggleChildren.bind(this)}>V</span>}
         {this.state.showChildren ?
           <div className="AllListRestaurants">
