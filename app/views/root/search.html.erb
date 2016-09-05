@@ -1,0 +1,30 @@
+<!-- <% react_component("Search", userSignedIn: user_signed_in?) %> -->
+
+<div>
+  <ol>
+    <% @new_search.response["restaurants"].map do |result|
+       rest = result["restaurant"]
+
+       if Restaurant.find_by(restaurant_id: rest["id"])
+        query = Restaurant.find_by(restaurant_id: rest["id"])
+       else
+       Restaurant.create!( name: rest["name"],
+                        restaurant_url: rest["url"],
+                        address: rest["location"]["address"],
+                        locality: rest["location"]["locality"],
+                        city: rest["location"]["city"],
+                        zipcode: rest["location"]["zipcode"],
+                        average_cost_for_two: rest["average_cost_for_two"],
+                        featured_img: rest["featured_image"],
+                        menu_url: rest["menu_url"],
+                        has_online_delivery: rest["has_online_delivery"],
+                        cuisines: rest["cuisines"],
+                        restaurant_id: rest["id"]
+                        )
+
+       query = Restaurant.find_by(name: rest["name"])
+       end %>
+       <li><a href= "restaurants/<%= query.id %>"> <%= query.name %> - <%= query.locality %></a></li>
+    <% end %>
+  </ol>
+</div>
