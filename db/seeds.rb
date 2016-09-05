@@ -67,8 +67,8 @@ amirsowl = Restaurant.create!( name: "Amir's SowlFood",
 require_relative '../lib/api.rb'
 include Zomato
 
-featured_restaurants = Zomato::API.new(280, 'city', '1')
-featured_restaurants.request_data
+featured_restaurants = Zomato::API.new
+featured_restaurants.request_data(280, 'city', '1')
 
 featured_restaurants.response["restaurants"].map do |restaurant|
     rest = restaurant["restaurant"]
