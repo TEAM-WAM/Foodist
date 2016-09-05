@@ -16,6 +16,7 @@ class ListRestaurant extends React.Component{
         {this.state.showChildren ?
           <div className="AllListExperiences">
           {this.props.data.list.map((list_e, i)=>{
+            console.log(list_e)
             return(<ListExperience key={i} data={list_e}/>)
           })}
           </div>
