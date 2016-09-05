@@ -1,7 +1,6 @@
 <div class="">
 
-    <h1>Create New Group</h1>
-
+    <h1>Update Group</h1>
     <% if @group.errors.any? %>
       <div id='error_explanation'>
         <h2>
@@ -15,7 +14,7 @@
       </div>
     <% end %>
 
-  <%= form_for @group, html: { multipart: true } do |f| %>
+  <%= form_for @group, html: { method: :put } do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br>
 
@@ -27,7 +26,7 @@
     <%= f.label :avatar  %>
     <%= f.file_field :avatar %><br>
 
-    <%= f.submit 'Create Group' %>
+    <%= f.submit 'Update' %>
 
   <% end %>
 

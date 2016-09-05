@@ -1,26 +1,27 @@
 class GroupsController < ApplicationController
 
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :add]
 
   def index
-    @user = User.find(current_user.id)
     @groups = Group.all
   end
 
   def show
-    @user = User.find(current_user.id)
     @group = Group.find(params[:id])
   end
 
   def new
-    @user = User.find(current_user.id)
     @group = Group.new
   end
 
   def create
-    group = Group.new(group_params)
-    group.save
+    @group = Group.new(group_params)
+
+    if @group.save
       redirect_to groups_path
+    else
+      render 'new'
+    end
   end
 
   def add
@@ -28,6 +29,20 @@ class GroupsController < ApplicationController
     @group= Group.find(params[:group_id])
     @group.members << @user
     redirect_to groups_path
+  end
+
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+
+    if @group.update(group_params)
+      redirect_to @group
+    else
+      render 'edit'
+    end
   end
 
   private
