@@ -1,5 +1,5 @@
 
-json.lists do
+json array! json.lists do
   json.list @list
   json.title @list.title
   json.votes @list.votes

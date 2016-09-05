@@ -9,7 +9,7 @@ this.dropObject = this.dropObject.bind(this)
   }
 
   componentDidMount(){
-  fetch("http://localhost:3000/j/lists")
+  fetch("http://localhost:3000/j/lists/10")
   .then((response)=> {return(response.json())})
   .then((jsonresponse) => {this.setState({lists: jsonresponse.lists})})
   // debugger
