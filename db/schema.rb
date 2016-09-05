@@ -96,17 +96,14 @@ ActiveRecord::Schema.define(version: 20160904190742) do
 
   create_table "profiles", force: :cascade do |t|
     t.text     "bio"
-    t.string   "zipcode",             limit: 10
+    t.string   "zipcode",      limit: 10
     t.date     "birthday"
-    t.string   "phone_number",        limit: 16
-    t.string   "gender",              limit: 50
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.integer  "user_id",                        null: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.string   "phone_number", limit: 16
+    t.string   "gender",       limit: 50
+    t.string   "image",                   default: "assets/images/profile_apple.jpg"
+    t.integer  "user_id",                                                             null: false
+    t.datetime "created_at",                                                          null: false
+    t.datetime "updated_at",                                                          null: false
   end
 
   create_table "restaurants", force: :cascade do |t|
