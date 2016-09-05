@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
     @restaurants.each do |rest|
       all_rests << { rest.name => rest.votes.count }
     end
-    all_rests.sort_by { |name, votes| votes }
+    all_rests.sort!{ |a,b| a.values.flatten <=> b.values.flatten }.reverse!
     top_ten = all_rests[0...10]
     @top_ten_obj = []
     top_ten.map do |rest|
