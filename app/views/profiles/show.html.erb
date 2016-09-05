@@ -3,7 +3,7 @@
   <div class="container">
       <div class="row">
           <div class="col-lg-12 text-center">
-              <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+              <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
               <%= link_to 'Edit Profile', edit_profile_path(current_user), class: 'btn btn-success btn-xs' %>
               <hr class="star-primary">
           </div>
@@ -36,7 +36,7 @@
           <% end %>
           </h4>
           <div class="list-group">
-            <% @user.lists.each do |list|%>
+            <% current_user.lists.each do |list|%>
               <span class="list-group-item"><%= link_to list.title, list_path(list.id) %></span>
             <% end %>
           </div>
@@ -52,7 +52,7 @@
             <i class="glyphicon glyphicon-plus"></i>
           <% end %></h4>
           <div class="list-group">
-            <% @user.groups.each do |group|%>
+            <% current_user.groups.each do |group|%>
               <span class="list-group-item"><%= link_to group.name, group_path(group.id) %></span>
             <% end %>
           </div>
@@ -63,15 +63,15 @@
         <h3>My Stats</h3>
         <div class="col-sm-4 portfolio-item">
           <h4>Total Lists Created</h4>
-          <%= @user.lists.count %>
+          <%= current_user.lists.count %>
         </div>
         <div class="col-sm-4 portfolio-item">
           <h4>Total Groups Created</h4>
-          <%= @user.created_groups.count %>
+          <%= current_user.created_groups.count %>
         </div>
         <div class="col-sm-4 portfolio-item">
           <h4>Total Votes Given</h4>
-          <%= Vote.where(user_id: @user.id ).count %>
+          <%= Vote.where(user_id: current_user.id ).count %>
         </div>
       </div>
 
