@@ -26,6 +26,9 @@
                 <%= link_to 'Lists', lists_path %>
             </li>
             <li class="page-scroll">
+                <%= link_to 'Restaurants', restaurants_path %>
+            </li>
+            <li class="page-scroll">
                 <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
             </li>
           <% else %>
@@ -37,6 +40,9 @@
             </li>
             <li class="page-scroll">
                 <%= link_to 'Lists', lists_path %>
+            </li>
+            <li class="page-scroll">
+                <%= link_to 'Restaurants', restaurants_path %>
             </li>
             <li class="page-scroll">
                 <%= link_to 'Register', new_user_registration_path %>
