@@ -23,4 +23,5 @@
       <%= link_to 'Edit Group', edit_group_path(@group) %>
     <% end %>
   <% end %>
+  <%= react_component 'Lists', {url: "/groups/#{@id}"}%>
 </div>
