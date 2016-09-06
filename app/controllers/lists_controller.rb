@@ -1,6 +1,10 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!, only: [:show]
   def show
+    @url = "/#{params[:id]}"
+  end
+
+  def index
   end
 
   def trending
@@ -11,6 +15,7 @@ class ListsController < ApplicationController
 
   def jshow
     @list = List.find_by(id: params[:id])
+
     render 'show.json.jbuilder'
   end
 
