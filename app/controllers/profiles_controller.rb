@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
       @profile = Profile.find_by(user_id: params[:id])
     end
     @profile = Profile.find_by(user_id: params[:id])
-    binding.pry
+    # binding.pry
   end
 
   def edit

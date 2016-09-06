@@ -1,11 +1,28 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!, only: [:show]
+  def index
+  end
+
   def show
     @url = "/#{params[:id]}"
   end
 
-  def index
+  def new
+    session[:return_to] ||= request.referer
+    @list = List.new
   end
+
+  def create
+    binding.pry
+    @list = current_user.lists.new(list_params)
+
+    if @list.save
+      redirect_to session.delete(:return_to)
+    else
+      render 'new'
+    end
+  end
+
 
   def jgroup
     group = Group.find_by(id: params[:id])
@@ -39,6 +56,6 @@ class ListsController < ApplicationController
 
   private
   def list_params
-    params.require(:id).permit(:id, :title)
+    params.require(:list).permit(:id, :title)
   end
 end
