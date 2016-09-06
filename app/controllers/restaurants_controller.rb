@@ -21,4 +21,8 @@ class RestaurantsController < ApplicationController
     @comments = @restaurant.comments
   end
 
+  def jshow
+
+  end
+
 end
