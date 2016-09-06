@@ -47,7 +47,7 @@
               <% @comments.each do |comment| %>
                 <li>
                   <div>
-                    <a href= "/profiles/<%= comment.user_id %>"><%= User.find(comment.user_id).username %></a>
+                    <a href= "/profiles/<%= User.find(comment.user_id).profile.id %>"><%= User.find(comment.user_id).username %></a>
                   </div>
                   <div>
                     <%= comment.body %>
