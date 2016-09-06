@@ -13,6 +13,29 @@ class User < ApplicationRecord
 
   validates :username, :first_name, :last_name, :email, presence: true
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, on: :create, message: "Must be valid email format(example: example@gmail.com)" }
-  validates :username, :email, uniqueness: true
+  validates :email, uniqueness: true
   validates :username, :first_name, :last_name, length: { maximum: 100 }
+  validates :username, :uniqueness => { :case_sensitive => false }
+
+  def login=(login)
+    @login = login
+  end
+
+  def login
+    @login || self.username || self.email
+  end
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    else
+      if conditions[:username].nil?
+        where(conditions).first
+      else
+        where(username: conditions[:username]).first
+      end
+    end
+  end
+
 end
