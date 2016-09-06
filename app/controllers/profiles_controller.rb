@@ -3,16 +3,17 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit, :update]
 
   def show
-    @user = User.find(params[:id])
-    if @user.profile
-      @profile = Profile.find_by(user_id: params[:id])
+    @user = User.find(current_user.id)
+    check_user = User.find(params[:id]).profile
+    if check_user
+      @profile = Profile.find(params[:id])
+      @profile_user = User.find(Profile.find(params[:id]).user_id)
     else
       new_profile = @user.build_profile
       new_profile.save
       @profile = Profile.find_by(user_id: params[:id])
+      @profile_user = User.find(Profile.find(params[:id]).user_id)
     end
-    @profile = Profile.find_by(user_id: params[:id])
-    # binding.pry
   end
 
   def edit

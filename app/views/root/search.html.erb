@@ -2,7 +2,7 @@
 
 <div>
   <ol>
-    <% @new_search.response["restaurants"].map do |result|
+    <% @new_search.response_data["restaurants"].map do |result|
        rest = result["restaurant"]
 
        if Restaurant.find_by(restaurant_id: rest["id"])
