@@ -1,4 +1,4 @@
-require_relative "../../lib/api.rb"
+# require_relative "../../lib/api.rb"
 
 class RootController < ApplicationController
   # include Zomato
@@ -19,8 +19,8 @@ class RootController < ApplicationController
     @new_search = Zomato::API.new
     if params[:location]
       @new_search.location(@location_query)
-      lat = @new_search.response["location_suggestions"][0]["latitude"]
-      lon = @new_search.response["location_suggestions"][0]["longitude"]
+      lat = @new_search.response_data["location_suggestions"][0]["latitude"]
+      lon = @new_search.response_data["location_suggestions"][0]["longitude"]
       @new_search.search_with_location(@query, lat, lon)
     else
       @new_search.search(@query)
