@@ -35,11 +35,7 @@
         <div class="row">
           <div class="col-sm-4">
             <% if user_signed_in? %>
-              <%= react_component('Votes', {user_id: current_user.id, vote: @restaurant.votes.count}) %>
-              <!-- <div class="row-fluid">
-                <a href="" class="glyphicon glyphicon-thumbs-up"></a>
-                <a href="" class="glyphicon glyphicon-thumbs-down"></a>
-              </div> -->
+              <%= react_component('Votes', {user_id: current_user.id, vote: @restaurant.votes.count, parent_id: @restaurant.id, parent_class: "Restaurant"}) %>
             <% else %>
               <h4>Net Votes:<%= @restaurant.votes.count %></h4>
               <h4>Must be loggen in to vote.</h4>
