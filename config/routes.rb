@@ -6,9 +6,11 @@ Rails.application.routes.draw do
 
   get '/add', to: "groups#add"
   get '/search', to: "root#search"
-  get '/j/lists/trending', to: 'lists#trending'
+  get '/j/lists/trending', to: 'lists#jtrending'
+  get '/j/lists/groups/:id', to: 'lists#jgroup'
   get '/j/lists/:id', to: 'lists#jshow'
     get '/j/lists/', to: 'lists#jindex'
+
 
 
   resources :restaurants, only: [:index, :show, :create, :update]
