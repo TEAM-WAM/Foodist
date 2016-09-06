@@ -64,13 +64,13 @@ amirsowl = Restaurant.create!( name: "Amir's SowlFood",
                     )
 
 # Seed featured restaurants
-require_relative '../lib/api.rb'
-include Zomato
+# require_relative '../lib/api.rb'
+# include Zomato
 
 featured_restaurants = Zomato::API.new
 featured_restaurants.request_data(280, 'city', '1')
 
-featured_restaurants.response["restaurants"].map do |restaurant|
+featured_restaurants.response_data["restaurants"].map do |restaurant|
     rest = restaurant["restaurant"]
     Restaurant.create!( name: rest["name"],
                     restaurant_url: rest["url"],
