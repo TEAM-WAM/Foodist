@@ -3,9 +3,15 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'root#index'
+
   get '/add', to: "groups#add"
   get '/search', to: "root#search"
-  get '/lists/j/trending', to: 'lists#trending'
+  get '/j/lists/trending', to: 'lists#jtrending'
+  get '/j/lists/groups/:id', to: 'lists#jgroup'
+  get '/j/lists/:id', to: 'lists#jshow'
+    get '/j/lists/', to: 'lists#jindex'
+
+
 
   resources :restaurants, only: [:index, :show, :create, :update]
   resources :groups, :users
