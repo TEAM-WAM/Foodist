@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2><%= @restaurant.name %></h2>
+            <hr class="star-primary">
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>At a Glance</h3>
+            <ul>
+              <li>Cuisine: <%= @restaurant.cuisines %></li>
+              <li>Average Cost for Two: $<%= @restaurant.average_cost_for_two%></li>
+              <li>Online Delivery:
+                <% if @restaurant.has_online_delivery %>
+                  <%= "Yes" %>
+                <% else %>
+                  <%= "No" %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <img src=<%= @restaurant.featured_img %> onerror="this.src='http://www.wall321.com/thumbnails/detail/20120719/fruits%20green%20apples%20apples%201440x900%20wallpaper_www.wall321.com_11.jpg'" class="img-thumbnail" >
+            <strong>Find it at:</strong> <%= @restaurant.address %> <%= @restaurant.locality %> <%= @restaurant.city %> <%= @restaurant.zipcode %>
+          </div>
+          <div class="col-sm-4">
+            <h3>More Info</h3>
+            <ul>
+              <li><a href="<%= @restaurant.restaurant_url %>">Visit <%= @restaurant.name %>'s Site</a></li>
+              <li><a href="<%= @restaurant.menu_url %>">Peruse the menu here</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h4>Net Votes:<%= @restaurant.votes.count %></h4>
+            <div class="row-fluid">
+              <a href="" class="glyphicon glyphicon-thumbs-up"></a>
+              <a href="" class="glyphicon glyphicon-thumbs-down"></a>
+            </div>
+
+          </div>
+        </div>
+    </div>
+</div>
