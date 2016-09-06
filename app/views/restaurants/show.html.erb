@@ -39,8 +39,25 @@
               <a href="" class="glyphicon glyphicon-thumbs-up"></a>
               <a href="" class="glyphicon glyphicon-thumbs-down"></a>
             </div>
-
           </div>
+
+          <div class="col-sm-4">
+            <h4>Comments:</h4>
+            <ul>
+              <% @comments.each do |comment| %>
+                <li>
+                  <div>
+                    <a href= "/profiles/<%= comment.user_id %>"><%= User.find(comment.user_id).username %></a>
+                  </div>
+                  <div>
+                    <%= comment.body %>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+
         </div>
+
     </div>
 </div>
