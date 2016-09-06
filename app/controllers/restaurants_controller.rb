@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
 
-  before_action :authenticate_user!, only: [:show, :index]
+  before_action :authenticate_user!, only: [:show]
 
   def index
     @restaurants = Restaurant.all
@@ -18,6 +18,11 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @comments = @restaurant.comments
+  end
+
+  def jshow
+
   end
 
 end

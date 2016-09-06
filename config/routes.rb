@@ -8,14 +8,15 @@ Rails.application.routes.draw do
   get '/search', to: "root#search"
   get '/j/lists/trending', to: 'lists#jtrending'
   get '/j/lists/groups/:id', to: 'lists#jgroup'
+  get '/j/restaurants/:id/comments', to: "comments#jrestaurants"
+  get '/j/lists/:id/comments', to: "comments#jlists"
   get '/j/lists/:id', to: 'lists#jshow'
-    get '/j/lists/', to: 'lists#jindex'
-
-
+  get '/j/lists/', to: 'lists#jindex'
 
   resources :restaurants, only: [:index, :show, :create, :update]
   resources :groups, :users
   resources :profiles, only: [:show, :edit, :update]
+  resources :comments, only: [:create, :edit, :update, :destroy]
 
   resources :lists do
     resources :list_restaurants, only: [:show, :create, :update, :destroy] do

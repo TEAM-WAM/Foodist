@@ -39,8 +39,17 @@
               <a href="" class="glyphicon glyphicon-thumbs-up"></a>
               <a href="" class="glyphicon glyphicon-thumbs-down"></a>
             </div>
+          </div>
+
+          <div class="col-sm-4">
+            <h4>Comments:</h4>
+            <div class="comment-form">
+              <%= react_component "Comments", {id: @restaurant.id, type:"Restaurants"}%>
+            </div>
 
           </div>
+
         </div>
+
     </div>
 </div>
