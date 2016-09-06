@@ -43,18 +43,10 @@
 
           <div class="col-sm-4">
             <h4>Comments:</h4>
-            <ul>
-              <% @comments.each do |comment| %>
-                <li>
-                  <div>
-                    <a href= "/profiles/<%= User.find(comment.user_id).profile.id %>"><%= User.find(comment.user_id).username %></a>
-                  </div>
-                  <div>
-                    <%= comment.body %>
-                  </div>
-                </li>
-              <% end %>
-            </ul>
+            <div class="comment-form">
+              <%= react_component "Comments", {id: @restaurant.id, type:"Restaurants"}%>
+            </div>
+
           </div>
 
         </div>
