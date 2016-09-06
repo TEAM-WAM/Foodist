@@ -15,7 +15,8 @@ class ListRestaurant extends React.Component{
         <h3>{this.props.data.title}</h3>{this.state.showChildren ?<span onClick={this.toggleChildren.bind(this)}>A</span>:<span onClick={this.toggleChildren.bind(this)}>V</span>}
         {this.state.showChildren ?
           <div className="AllListExperiences">
-          {this.props.data.list.map((list_e, i)=>{
+          {this.props.data.experiences.map((list_e, i)=>{
+            console.log(list_e)
             return(<ListExperience key={i} data={list_e}/>)
           })}
           </div>

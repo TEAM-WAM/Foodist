@@ -98,12 +98,12 @@ ActiveRecord::Schema.define(version: 20160904190742) do
     t.text     "bio"
     t.string   "zipcode",             limit: 10
     t.date     "birthday"
-    t.string   "phone_number",        limit: 16
-    t.string   "gender",              limit: 50
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "phone_number",        limit: 16
+    t.string   "gender",              limit: 50
     t.integer  "user_id",                        null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
