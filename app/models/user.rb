@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :lists, as: :listable
   has_many :created_groups, class_name: "Group", foreign_key: :creator_id
   has_and_belongs_to_many :groups
+  has_many :votes
 
   validates :username, :first_name, :last_name, :email, presence: true
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, on: :create, message: "Must be valid email format(example: example@gmail.com)" }
