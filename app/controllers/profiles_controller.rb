@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
       @profile = Profile.find_by(user_id: params[:id])
     end
     @profile = Profile.find_by(user_id: params[:id])
+    # binding.pry
   end
 
   def edit
@@ -20,6 +21,11 @@ class ProfilesController < ApplicationController
 
   def update
     # @user = User.find(params[:id])
+  end
+
+  private
+  def profile_params
+    params.permit[:id]
   end
 
 end
