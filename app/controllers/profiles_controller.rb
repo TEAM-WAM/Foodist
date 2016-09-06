@@ -4,7 +4,8 @@ class ProfilesController < ApplicationController
 
   def show
     @user = User.find(current_user.id)
-    if Profile.find(params[:id])
+    check_user = User.find(params[:id]).profile
+    if check_user
       @profile = Profile.find(params[:id])
       @profile_user = User.find(Profile.find(params[:id]).user_id)
     else
