@@ -13,25 +13,43 @@ toggleChildren(){
 
 
   render(){
-
+    var dataId = "restaurants" + this.props.dataId
+    var dataIdClass = "#" + dataId
     return(
-      <tr className="List">
-        <h2><strong>{this.props.data.title}</strong></h2>{this.state.showChildren ?
-          <span onClick={this.toggleChildren.bind(this)} className="glyphicon glyphicon-chevron-up">
-          </span>:
-          <span onClick={this.toggleChildren.bind(this)} className="glyphicon glyphicon-chevron-down">
-          </span>}
-        {this.state.showChildren ?
-          <table className="AllListRestaurants table table-bordered">
-          <th className="col_header"> Restaurant </th><th className="col_header"> custom fields </th><th className="col_header"> custom fields </th><th className="col_header"> custom fields </th>
-          {this.props.data.restaurants.map((list_r, i)=>{
-            return(<ListRestaurant key={i} data={list_r}/>)
-          })}
-          </table>
-          : null
-      }
+    <div className="row List">
+          <div className="row">
+            <h2><strong>{this.props.data.title}</strong></h2>
+            <a href={dataIdClass} data-toggle="collapse" onClick={this.toggleChildren.bind(this)}>
+              {this.state.showChildren ?
+                <i className="glyphicon glyphicon-chevron-up"></i> :
+                <i className="glyphicon glyphicon-chevron-down"></i>
+              }
+            </a>
+          </div>
+      <div className="row collapse" id={dataId}>
+        <div className="row">
+            {/* iterate this for field headers  */}
+            <div className="col-xs-3">
+              <strong>Restaurant</strong>
+            </div>
+             <div className="col-xs-3">
+              <strong>Cuisine</strong>
+            </div>
+             <div className="col-xs-3">
+              <strong>Location</strong>
+            </div>
+             <div className="col-xs-3">
+              <strong>Visted</strong>
+            </div>
 
-      </tr>
+        </div>
+        {this.props.data.restaurants.map((list_r, i)=>{
+              return(<ListRestaurant key={i} dataId={i} data={list_r}/>)
+            })}
+      </div>
+    </div>
+
+
     )
   }
 }

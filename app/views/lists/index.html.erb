@@ -1,8 +1,10 @@
 <div class="container">
+  <% if current_user %>
   <div class="row">
     <h1>My Lists</h1>
     <%= react_component 'Lists', {url: ''} %></br >
   </div>
+  <% end %>
   <div class="row">
     <h1>Trending Lists</h1>
     <%= react_component 'Lists', {url: '/trending'} %></br >
