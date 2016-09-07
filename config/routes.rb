@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :groups, :users
   resources :profiles, only: [:show, :edit, :update]
   resources :comments, only: [:create, :edit, :update, :destroy]
+  resources :votes, only: [:create]
 
   resources :lists do
     resources :list_restaurants, only: [:show, :create, :update, :destroy] do
