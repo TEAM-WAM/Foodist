@@ -1,11 +1,33 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!, only: [:show]
   def index
+      @lists = current_user.lists
+      lists_array = []
+      @trending = []
+      all_lists = List.all
+      all_lists.each do |list|
+        votes = list.votes.where(up: 'true').count - list.votes.where(up: 'false').count
+        lists_array << {list => votes}
+      end
+      trending = lists_array.sort{ |a,b| a.values.flatten <=> b.values.flatten}.reverse[0..10]
+      trending.each {|list| @lists << list.keys[0]}
   end
 
   def show
-    @url = "/#{params[:id]}"
-    @list = List.find(params[:id])
+      @url = "/#{params[:id]}"
+      @list = List.find(params[:id])
+
+  end
+
+  def update
+    if request.xhr?
+      @list = List.find(params[:id])
+      if @list.restaurants.include?(Restaurant.find(params[:rest_id]))
+        render json: "true".to_json
+      else
+        render json: "false".to_json
+      end
+    end
   end
 
   def new
