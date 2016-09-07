@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!, only: [:show]
   def index
-      @lists = current_user.lists
+      @lists = current_user.lists if current_user
       lists_array = []
       @trending = []
       all_lists = List.all

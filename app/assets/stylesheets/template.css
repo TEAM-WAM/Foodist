@@ -111,7 +111,7 @@ footer {
     padding: 0;
 }
 
-.navbar-default {
+#topNav {
     border-color: rgba(35,35,35,.05);
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
     background-color: #222;
@@ -144,14 +144,14 @@ footer {
 .navbar-default .nav > li>a,
 .navbar-default .nav>li>a:focus {
     text-transform: uppercase;
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 100;
     color: #eee;
 }
 
 .navbar-default .nav > li>a:hover,
 .navbar-default .nav>li>a:focus:hover {
-    color: #9c27b0;
+    color: #e2afaf;
 }
 
 .navbar-default .nav > li.active>a,
@@ -166,6 +166,32 @@ footer {
     background-color: transparent;
 }
 
+#bootstrap-overrides {
+    float: right;
+}
+
+#custom-size {
+    font-size: 28px;
+}
+
+#root-head {
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(30,30,30,0.7);
+    text-decoration: none;
+}
+
+#root-head:hover {
+    color: #e2afaf;
+}
+
+#one {
+    background-color: #771010;
+}
+
+#welcome {
+    color: #fff;
+    font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
+}
 
 @media(min-width:768px) {
     .navbar-default {
@@ -189,7 +215,7 @@ footer {
         color: rgba(255,255,255,0.8);
         padding: 20px;
         letter-spacing: 1.1px;
-        text-shadow: 1px 1px 1px rgba(60,60,60,0.7);
+        text-shadow: .2px .2px .2px rgba(60,60,60,0.7);
     }
 
     .navbar-default .nav > li>a:hover,
@@ -203,7 +229,7 @@ footer {
     }
 
     .navbar-default.affix .navbar-header .navbar-brand {
-        font-size: 15px;
+        font-size: 24px;
         color: #9c27b0;
         padding: 20px;
         letter-spacing: 1px;
@@ -211,7 +237,7 @@ footer {
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
     .navbar-default.affix .navbar-header .navbar-brand:focus {
-        color: #8b27b0;
+        color: #e2afaf;
     }
 
     .navbar-default.affix .nav > li>a,
@@ -222,7 +248,7 @@ footer {
 
     .navbar-default.affix .nav > li>a:hover,
     .navbar-default.affix .nav>li>a:focus:hover {
-        color: #9c27b0;
+        color: #e2afaf;
     }
 }
 
@@ -231,6 +257,7 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
+    text-shadow: 1px 1px 1px rgba(30,30,30,0.7);
     width: 100%;
     background-color: #c9c9c9;
     background-image: url('https://splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-Slate-Stone-Xeromatic-1440x953.jpg');
@@ -263,11 +290,11 @@ header .header-content .inner p {
 
 #video-background {
   position: absolute;
-  right: 0; 
+  right: 0;
   bottom: 0;
-  min-width: 100%; 
+  min-width: 100%;
   min-height: 100%;
-  width: auto; 
+  width: auto;
   height: auto;
   z-index: 1;
 }
@@ -284,7 +311,7 @@ footer {
     .icon-lg {
         font-size: 80px;
     }
-    
+
     header {
         min-height: 100%;
     }
@@ -305,7 +332,7 @@ footer {
     }
 
     header .header-content .inner h1 {
-        font-size: 73px;
+        font-size: 80px;
     }
 
     header .header-content .inner p {
@@ -314,9 +341,8 @@ footer {
         max-width: 80%;
         font-size: 18px;
     }
-    
+
     section {
-        min-height: 600px;
         padding: 100px 0;
     }
 
