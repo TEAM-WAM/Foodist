@@ -1,8 +1,14 @@
 <div class="container">
-  <% if current_user %>
+
+  <% if user_signed_in? %>
+      <% @id = current_user.id %>
+  <% else %>
+      <% @id = 0 %>
+  <% end %>
+
   <div class="row">
     <h1>My Lists</h1>
-    <%= react_component 'Lists', {url: ''} %></br >
+    <%= react_component 'Lists', {url: '', user_id: @id} %></br >
   </div>
   <% end %>
   <div class="row">
