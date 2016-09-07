@@ -3,3 +3,8 @@ LOG:  MultiXact member wraparound protections are now enabled
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
 FATAL:  database "Foodist_development" does not exist
+LOG:  database system was shut down at 2016-09-07 00:27:14 EDT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "Foodist_development" does not exist
