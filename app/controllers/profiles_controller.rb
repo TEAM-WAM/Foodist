@@ -18,16 +18,29 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    # @user = User.find(params[:id])
+    @user = User.find(current_user.id)
+    @profile = Profile.find(params[:id])
   end
 
   def update
-    # @user = User.find(params[:id])
+    @profile = Profile.find(params[:id])
+    if @profile.update(edit_profile_params)
+      # file = params[:profile][:avatar]
+      # File.open(Rails.root.join('app', 'assets','images', file.original_filename), 'wb')
+      # f.write(file.read)
+      redirect_to @profile
+    else
+      render 'edit'
+    end
   end
 
   private
   def profile_params
     params.permit[:id]
+  end
+
+  def edit_profile_params
+    params.require(:profile).permit(:bio, :zipcode, :birthday, :avatar, :phone_number, :gender)
   end
 
 end
