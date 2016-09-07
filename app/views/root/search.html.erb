@@ -1,7 +1,7 @@
 <!-- <% react_component("Search", userSignedIn: user_signed_in?) %> -->
 
 <div>
-  <ol>
+  <ol class="sortable" ondragstart="">
     <% @new_search.response_data["restaurants"].map do |result|
        rest = result["restaurant"]
 
@@ -24,7 +24,40 @@
 
        query = Restaurant.find_by(name: rest["name"])
        end %>
-       <li><a href= "restaurants/<%= query.id %>"> <%= query.name %> - <%= query.locality %></a></li>
+       <li><a draggable="true" ondragstart="drag(event)" id="drag1" href= "restaurants/<%= query.id %>"> <%= query.name %> - <%= query.locality %></a></li>
     <% end %>
   </ol>
 </div>
+<!-- <script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+    // debugger;
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    $(ev.target).append(document.getElementById(data));
+}
+</script>
+
+<style>
+#div1 {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+</style>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <% if user_signed_in? %>
+
+  <% else %>
+
+  <% end %>
+</div> -->

@@ -41,6 +41,7 @@ end
 #      profile.save
 # end
 
+
 # Create 1 group, creator Amir
 spicytacos = amir.created_groups.create!(name: "The Spicy Tacos", description: "We love spicy tacos! They're the best!")
 spicytacos.members.push(myra, walter)
