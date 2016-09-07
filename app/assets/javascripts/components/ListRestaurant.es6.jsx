@@ -16,7 +16,7 @@ class ListRestaurant extends React.Component{
     return(
         <div className="row" draggable="true">
 
-          <div className="row content">
+          <div className="row content" id="list_r_values">
           {/* iterate this for field values  */}
             <div className="col-xs-3">
               <strong><a href={link}>{this.props.data.title}</a></strong>
@@ -48,8 +48,23 @@ class ListRestaurant extends React.Component{
           <div className="row collapse" id={dataId}>
             <div className="row headers">
             {/* iterate over all col feilds with the fields className */}
-              <div className="col-xs-3 fields">
-                <strong>Fieldname</strong>
+              <div className="col-xs-2 fields">
+                <strong>Date</strong>
+              </div>
+              <div className="col-xs-2 fields">
+                <strong>Main Dish</strong>
+              </div>
+              <div className="col-xs-2 fields">
+                <strong>Price</strong>
+              </div>
+              <div className="col-xs-2 fields">
+                <strong>Party Size</strong>
+              </div>
+              <div className="col-xs-2 fields">
+                <strong>Wait Time</strong>
+              </div>
+              <div className="col-xs-2 fields">
+                <strong>Notes</strong>
               </div>
 
             </div>
