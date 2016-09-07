@@ -1,21 +1,40 @@
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-            <div class="modal-body">
-                <h2>Welcome to Foodist</h2>
-                <hr class="star-primary">
-                <img src="" class="img-responsive img-centered" alt="">
-                <p>Alas, being a bougie foodie can be so challenging without the right tools... So why not start a Foodist?</p>
+<header id="first">
+    <div class="header-content">
+        <div class="inner">
+            <h1 class="cursive"><a id= "root-head" href="#one">Foodist</a></h1>
+            <h4>Eat & Drink, Make & Share</h4>
+            <hr>
+        </div>
+    </div>
+    <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="../../../assets/Veggie-Stand.jpg" id="video-background">
+        <source src="../../../assets/Veggie-Stand.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
+</header>
+
+<section class="bg-primary" id="one">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
+              <h2 class="margin-top-0 text-primary" id="welcome">Welcome to Foodist</h2>
+              <br>
+              <p class="text-faded">
+                Alas, being a "bougie foodie" can be so challenging without the right tools... So why not start a Foodist? You can customize your profile page, join or start a foodie group, and search for your new favorite restaurant in our collections of restaurants.
+              </p>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="container-fluid" id="four">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+            <h2 class="text-center text-primary">Trending Lists</h2>
+            <hr>
+            <div class="media-body media-middle">
+              <div class="media wow fadeIn">
+                <%= react_component 'Lists', {url: '/trending'} %>
+              </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2">
-        <div class="modal-body">
-          <h2>Trending Lists</h2>
-          <%= react_component 'Lists', {url: '/trending'} %>
-
-        </div>
       </div>
-    </div>
-</div>
+</section>
