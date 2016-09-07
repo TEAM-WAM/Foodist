@@ -11,7 +11,7 @@ class Votes extends React.Component {
   }
 
   componentDidMount() {
-    this.updateVotes();
+    this.setState({votes: this.props.vote})
   }
 
   handleUpClick(event) {
@@ -31,7 +31,7 @@ class Votes extends React.Component {
      .done((response) => {
        this.updateVotes(response);
        link.parent().hide();
-     })
+     }.bind(this))
   }
 
   handleDownClick(event) {
@@ -51,22 +51,23 @@ class Votes extends React.Component {
      .done((response) => {
        this.updateVotes(response)
        link.parent().hide()
-     })
+     }.bind(this))
   }
 
   updateVotes(newVote) {
     if(newVote) {
-      vote = this.state.votes + newVote
-      this.setState({votes: vote})
+      this.setState({votes: newVote})
     } else {
-      this.setState({votes: this.props.vote})
+      this.setState({votes: this.state.votes})
     }
   }
 
+
   render() {
+
     return(
       <div className="row-fluid">
-      <h4>Net Votes: {this.state.votes}</h4>
+      <h4>Votes: {this.state.votes}</h4>
         <div id='Votes'>
           <a onClick={this.handleUpClick} href="" className="glyphicon glyphicon-thumbs-up"></a> <br/>
           <a onClick={this.handleDownClick} href="" className="glyphicon glyphicon-thumbs-down"></a>

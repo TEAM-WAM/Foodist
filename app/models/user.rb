@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  # after_save :create_profile
 
   after_save :create_profiles
 
@@ -20,7 +21,8 @@ class User < ApplicationRecord
   validates :username, :first_name, :last_name, length: { maximum: 100 }
   validates :username, :uniqueness => { :case_sensitive => false }
 
-  def create_profiles
+
+  def create_profile
     profile = self.build_profile
     profile.save
   end

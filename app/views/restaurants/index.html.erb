@@ -12,7 +12,7 @@
               <a href= "restaurants/<%= rest.id %>" >
               <img src=<%= rest.featured_img %> onerror="this.src='http://www.wall321.com/thumbnails/detail/20120719/fruits%20green%20apples%20apples%201440x900%20wallpaper_www.wall321.com_11.jpg'" class="img-thumbnail" >
               <h4><%= rest.name %></h4>
-              <h5>Net Votes: <%= rest.votes.count %></h5>
+              <h5>Net Votes: <%= rest.restaurant_vote_count %></h5>
               </a>
             </div>
           <% end %>
