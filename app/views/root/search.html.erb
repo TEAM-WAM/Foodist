@@ -24,40 +24,61 @@
 
        query = Restaurant.find_by(name: rest["name"])
        end %>
-       <li><a draggable="true" ondragstart="drag(event)" id="drag1" href= "restaurants/<%= query.id %>"> <%= query.name %> - <%= query.locality %></a></li>
+       <li><a draggable="true" ondragstart="drag(event)" id="<%= query.id %>" href= "restaurants/<%= query.id %>"> <%= query.name %> - <%= query.locality %></a></li>
     <% end %>
   </ol>
 </div>
-<!-- <script>
+<script>
 function allowDrop(ev) {
     ev.preventDefault();
 }
 
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
-    // debugger;
 }
 
 function drop(ev) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    $(ev.target).append(document.getElementById(data));
+    var element = ev.dataTransfer.getData("text");
+    var parentDiv = $(ev.target).parent().parent()
+    var listId = parentDiv.children().attr('id')
+    var restaurantsList = parentDiv.children().last()
+    var data = {
+      restaurant_id: element,
+      list_id: listId
+    }
+    var url = "/lists/" + data.list_id + "/list_restaurants"
+    $.post(url, data)
+      .done((response) => {
+        restaurantsList.append(document.getElementById(element));
+      })
 }
 </script>
 
 <style>
 #div1 {
     width: 350px;
-    height: 70px;
+    height: 150px;
     padding: 10px;
     border: 1px solid #aaaaaa;
+    float: right;
+    margin-right: 4%;
+    margin-bottom: 90%;
 }
 </style>
 
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
   <% if user_signed_in? %>
-
+    <h3><%= current_user.first_name %>'s List</h3>
+      <% current_user.lists.map do |list| %>
+      <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h4 id="<%= list.id %>"><a href="/lists/<%= list.id %>"><%= list.title %></a></h4>
+        <ul id="restaurants-list">
+        <% list.restaurants.each do |rest| %>
+          <li><a href="/restaurants/<%= rest.id %>"><%= rest.name %></a></li>
+        <% end %>
+        </ul>
+      </div><br>
+      <% end %>
   <% else %>
-
+    <h3>Must be logged in in order to save restaurants to your list.</h3>
   <% end %>
-</div> -->
