@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/j/lists/:id/comments', to: "comments#jlists"
   get '/j/lists/:id', to: 'lists#jshow'
   get '/j/lists/', to: 'lists#jindex'
+  get '/profiles', to: 'profiles#index'
 
   # get '/j/restaurants/:id/lists', to: 'list_restaurant#jrestaurantlists'
   get '/j/restaurants/:id/comments', to: "comments#jrestaurants"

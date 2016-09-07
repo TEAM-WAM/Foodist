@@ -14,17 +14,17 @@ class Lists extends React.Component{
 
   render(){
     if(this.state.lists.length == null){
-      lists = <List data={this.state.lists}/>
+      lists = <List dataId="list1" data={this.state.lists}/>
     }
     else {
         lists = this.state.lists.map((list, i) => {
-          return( <List data={list} key={i} /> )
+          return( <List dataId={i} data={list} key={i} /> )
         })
     }
     return(
-      <table className="AllLists table table-bordered">
+      <div className="container">
         {lists}
-      </table>
+      </div>
     )
   }
 }
