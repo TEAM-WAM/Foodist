@@ -124,9 +124,9 @@ footer {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
     color: #9c27b0;
     padding: 15px;
-    -webkit-transition: padding .4s ease-in;
-    -moz-transition: padding .4s ease-in;
-    transition: padding .4s ease-in;
+    -webkit-transition: padding 1s ease-in;
+    -moz-transition: padding 1s ease-in;
+    transition: padding 1s ease-in;
 }
 
 .navbar-header > .navbar-brand:hover,
@@ -181,7 +181,7 @@ footer {
 
     .navbar-default .navbar-header .navbar-brand:hover,
     .navbar-default .navbar-header .navbar-brand:focus {
-        color: #f4f4f4;
+        color: #e2afaf;
     }
 
     .navbar-default .nav > li>a,
@@ -194,7 +194,7 @@ footer {
 
     .navbar-default .nav > li>a:hover,
     .navbar-default .nav>li>a:focus:hover {
-        color: #fefefe;
+        color: #e2afaf;
     }
 
     .navbar-default.affix {
