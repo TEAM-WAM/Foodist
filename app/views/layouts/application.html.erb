@@ -9,36 +9,29 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'favicon/fork-knife.ico' %>
 
-    <!-- Bootstrap -->
-    <link href="vendor/assets/stylesheets/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Theme CSS -->
-    <link href="vendor/assets/stylesheets/freelancer.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="vendor/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Codeply">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 
   </head>
 
-
-  <body id="page-top" class="index">
+  <body>
 
   <%= render 'shared/navigation' %>
 
-  <header>
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-12">
-                  <img class="img-responsive" src="img/profile.png" alt="">
-                  <div class="intro-text">
-                      <span class="name">Foodist</span>
-                      <hr class="star-light">
-                  </div>
-              </div>
+  <header id="first">
+      <div class="header-content">
+          <div class="inner">
+              <h1 class="cursive">Foodist</h1>
+              <h4>Eat & Drink, Make & Share</h4>
+              <hr>
           </div>
       </div>
+      <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="../../../assets/Veggie-Stand.jpg" id="video-background">
+          <source src="../../../assets/Veggie-Stand.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
+      </video>
   </header>
 
     <%= yield %>
