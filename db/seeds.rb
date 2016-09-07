@@ -29,7 +29,7 @@ m_list = myra.lists.create!(title: "Cool SF Spots")
 w_list = walter.lists.create!(title: "Walter's Tex-Mex list")
 
 # Create 6 additional lists for Amir
-list_titles = ["Places with the Spiciest Food", "My Favorite Restaurants Ever", "Places to take Mom & Pop", "Experimental Foods", "Restaurants I'll never visit again", "Pet friendly restaurants!"]
+list_titles = ["Places with the Spiciest Food", "My Favorite Restaurants Ever", "Places to take Mom & Pop", "Experimental Foods", "Hawaiian Spots", "Pet friendly restaurants!"]
 list_titles.map do |list|
      amir.lists.create!(title: list)
 end
