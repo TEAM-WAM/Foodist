@@ -30,7 +30,16 @@ toggleChildren(){
         <div className="row">
             {/* iterate this for field headers  */}
             <div className="col-xs-3">
-              <strong>Field Headers</strong>
+              <strong>Restaurant</strong>
+            </div>
+             <div className="col-xs-3">
+              <strong>Cuisine</strong>
+            </div>
+             <div className="col-xs-3">
+              <strong>Location</strong>
+            </div>
+             <div className="col-xs-3">
+              <strong>Visted</strong>
             </div>
 
         </div>
