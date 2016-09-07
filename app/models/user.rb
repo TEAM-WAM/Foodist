@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  after_save :create_profiles
+
   #to call activerecord association for has_one profile, use build_profile
   has_one :profile, dependent: :destroy
   has_many :comments
@@ -16,6 +18,11 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :username, :first_name, :last_name, length: { maximum: 100 }
   validates :username, :uniqueness => { :case_sensitive => false }
+
+  def create_profiles
+    profile = self.build_profile
+    profile.save
+  end
 
   def login=(login)
     @login = login
