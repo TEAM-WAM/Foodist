@@ -47,9 +47,13 @@ toggleChildren(){
               return(<ListRestaurant key={i} dataId={i} data={list_r}/>)
             })}
       </div>
+      <Votes
+      vote={this.props.votes}
+      parent_id={this.props.parent_id}
+      parent_class={this.props.type}
+      user_id={this.props.user_id}
+      />
     </div>
-
-
     )
   }
 }

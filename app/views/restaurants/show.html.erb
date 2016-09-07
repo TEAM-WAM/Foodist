@@ -34,17 +34,18 @@
         </div>
         <div class="row">
           <div class="col-sm-4">
-            <h4>Net Votes:<%= @restaurant.votes.count %></h4>
-            <div class="row-fluid">
-              <a href="" class="glyphicon glyphicon-thumbs-up"></a>
-              <a href="" class="glyphicon glyphicon-thumbs-down"></a>
-            </div>
+            <% if user_signed_in? %>
+              <%= react_component('Votes', {user_id: current_user.id, vote: @restaurant.restaurant_vote_count, parent_id: @restaurant.id, parent_class: "Restaurant"}) %>
+            <% else %>
+              <h4>Net Votes:<%= @restaurant.restaurant_vote_count %></h4>
+              <h4>Must be loggen in to vote.</h4>
+            <% end %>
           </div>
 
           <div class="col-sm-4">
             <h4>Comments:</h4>
             <div class="comment-form">
-              <%= react_component "Comments", {id: @restaurant.id, type:"Restaurants"}%>
+              <%= react_component "Comments", {id: @restaurant.id, type:"Restaurants", user_id: current_user.id}%>
             </div>
           </div>
 
