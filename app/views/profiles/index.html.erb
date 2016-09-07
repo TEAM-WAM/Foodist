@@ -1,0 +1,57 @@
+<div class="container">
+  <% 5.times do |i| %>
+    <div class="row">
+        <p>List Title <%=i%></p>
+         <a href="#restaurants<%=i%>" data-toggle="collapse"> <i class="glyphicon glyphicon-chevron-down"></i></a>
+    </div>
+    <div class="row collapse" id="restaurants<%=i%>">
+      <div class="row">
+        <%4.times do |j|%>
+          <div class="col-xs-3">
+            <strong>header <%=j%></strong>
+          </div>
+        <%end%>
+      </div>
+
+      <% 4.times do |k| %>
+        <div class="row" draggable="true"> -->
+
+          <div class="row content">
+            <%4.times do |j|%>
+            <div class="col-xs-3">
+              restaurant <%=j%>
+            </div>
+            <%end%>
+          </div>
+
+          <a href="#experiences<%=k%>" data-toggle="collapse"> <i class="glyphicon glyphicon-chevron-down"></i></a>
+          <div class="row collapse" id="experiences<%=k%>">
+            <div class="row header">
+              <%4.times do |l|%>
+              <div class="col-xs-3">
+                <strong>experience header <%=l%></strong>
+              </div>
+              <%end%>
+            </div>
+
+
+            <!-- Experiences -->
+
+            <div class="row values" draggable="true">
+              <%4.times do |l|%>
+              <div class="col-xs-3">
+                experience values<%=l%>
+              </div>
+              <%end%>
+            </div>
+          </div>
+
+       </div>
+      <%end%>
+
+
+
+    </div>
+  <%end%>
+
+</div>
