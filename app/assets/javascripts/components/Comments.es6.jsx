@@ -2,9 +2,11 @@ class Comments extends React.Component {
   constructor() {
     super();
     this.state = { comments: [],
-                  showForm: false
+                  showForm: false,
+                  showComments: true
     }
     this.toggleForm = this.toggleForm.bind(this);
+    this.toggleComments = this.toggleComments.bind(this);
   }
 
   componentDidMount() {
@@ -14,6 +16,10 @@ class Comments extends React.Component {
       .then((response)=> {return(response.json())})
       .then((jsonresponse) => {this.setState({comments: jsonresponse.comments})})
       }
+
+  toggleComments(){
+    this.setState({showComments: !(this.state.showComments)})
+  }
 
   toggleForm(){
     this.setState({showForm: !(this.state.showForm)})
@@ -34,7 +40,18 @@ class Comments extends React.Component {
   render() {
 
     return (
+
       <div>
+      {this.state.showComments ? <button type="button" className="btn btn-default btn-sm"><span className="glyphicon glyphicon-pencil" onClick={this.toggleComments}></span> </button> :<button type="button" className="btn btn-default btn-sm"><span className="glyphicon glyphicon-pencil icon-flipped" onClick={this.toggleComments}></span></button>}
+      {this.state.showComments ?
+      <div>
+            <ul className="list-group">{
+              this.state.comments.map((comment, i)=>{
+                return (<Comment key={i} data={comment} />)
+              }
+                )
+            }
+            </ul>
 
 
           {this.state.showForm ?
@@ -43,29 +60,8 @@ class Comments extends React.Component {
           <input type='submit' value="comment" />
         </form>
         : <button onClick={this.toggleForm}>Add Comment</button>}
-            <ul>{
-              this.state.comments.map((comment, i)=>{
-                return (<Comment key={i} data={comment} />)
-              }
-                )
-            }
-            </ul>
-
+        </div>: null}
       </div>
     )
   }
 }
-
-
-            // <ul>
-            //   <% @comments.each do |comment| %>
-            //     <li>
-            //       <div>
-            //         <a href= "/profiles/<%= User.find(comment.user_id).profile.id %>"><%= User.find(comment.user_id).username %></a>
-            //       </div>
-            //       <div>
-            //         <%= comment.body %>
-            //       </div>
-            //     </li>
-            //   <% end %>
-            // </ul>
