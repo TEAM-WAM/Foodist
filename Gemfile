@@ -35,6 +35,7 @@ gem 'faker'
 gem 'httparty'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'autoprefixer-rails'
+gem 'jquery-turbolinks'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

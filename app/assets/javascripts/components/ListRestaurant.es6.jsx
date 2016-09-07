@@ -44,7 +44,6 @@ class ListRestaurant extends React.Component{
             })}
           </div>
         </div>
-
     )
   }
 }
