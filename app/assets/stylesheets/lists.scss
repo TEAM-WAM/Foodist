@@ -2,12 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.AllLists {
-    margin: auto;
-    border: 1px solid red;
-    border-radius: 10px;
-    width: 500px;
-}
+// .AllLists {
+//     margin: auto;
+//     border: 1px solid red;
+//     border-radius: 10px;
+//     width: 500px;
+// }
 
 .List {
   padding: 10px;
@@ -16,12 +16,12 @@
   border-radius: 10px;
 }
 
-.AllListRestaurants{
-  padding-left: 10px;
-  margin: auto;
-  border: 1px solid green;
-  border-radius: 10px;
-}
+// .AllListRestaurants{
+//   padding-left: 10px;
+//   margin: auto;
+//   border: 1px solid green;
+//   border-radius: 10px;
+// }
 
 .ListRestaurant {
   padding: 5px;
@@ -30,16 +30,24 @@
   border-radius: 10px;
 }
 
-.AllListExperiences{
-  padding-left: 10px;
-  margin: auto;
-  border: 1px solid red;
-  border-radius: 10px;
-}
+// .AllListExperiences{
+//   padding-left: 10px;
+//   margin: auto;
+//   border: 1px solid red;
+//   border-radius: 10px;
+// }
 
 .ListExperience {
   padding: 5px;
   margin: auto;
   border: 1px solid blue;
   border-radius: 10px;
+}
+
+tr {
+  border: 1px solid green;
+}
+
+td {
+  border: 1px solid red;
 }

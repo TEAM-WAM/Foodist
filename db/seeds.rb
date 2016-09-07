@@ -35,10 +35,11 @@ list_titles.map do |list|
 end
 
 # Construct 1 profile per user
-users = User.all
-users.map do |user|
-     user.build_profile
-end
+# users = User.all
+# users.map do |user|
+#      profile = user.build_profile
+#      profile.save
+# end
 
 # Create 1 group, creator Amir
 spicytacos = amir.created_groups.create!(name: "The Spicy Tacos", description: "We love spicy tacos! They're the best!")
