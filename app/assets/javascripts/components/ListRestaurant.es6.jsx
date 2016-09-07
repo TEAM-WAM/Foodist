@@ -21,6 +21,20 @@ class ListRestaurant extends React.Component{
             <div className="col-xs-3">
               <strong><a href={link}>{this.props.data.title}</a></strong>
             </div>
+            <div className="col-xs-3">
+              <strong>{this.props.data.list.cuisine}</strong>
+            </div>
+            <div className="col-xs-3">
+              <strong>{this.props.data.list.location}</strong>
+            </div>
+            <div className="col-xs-3">
+              <strong>
+                {this.props.data.list.tried ?
+                  <i className="glyphicon glyphicon-ok"></i>:
+                  <i className="glyphicon glyphicon-remove"></i>
+                }
+              </strong>
+            </div>
 
           </div>
 
