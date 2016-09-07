@@ -1,1 +1,102 @@
+<section id="portfolio">
+
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+              <%= link_to 'Done Editing', profile_path(current_user), class: 'btn btn-success btn-xs' %>
+              <hr class="star-primary">
+              <% if @profile.errors.any? %>
+                <div id='error_explanation'>
+                  <h2>
+                    <%= pluralize(@profile.errors.count, 'error') %> prohibited this article from being saved:
+                  </h2>
+                  <ul>
+                    <% @profile.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4 portfolio-item">
+          <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+              <div class="caption">
+                  <div class="caption-content">
+                      <i class="fa fa-search-plus fa-3x"></i>
+                  </div>
+              </div>
+              <img src=<%= @profile.avatar.url %> class="img-responsive" alt="">
+              <div>
+                <%= form_for @profile, html: { :multipart => true } do |f| %>
+                  <%= f.hidden_field :user_id, :value => current_user.id %>
+                  <%= f.label :avatar  %>
+                  <%= f.file_field :avatar %><br>
+                  <%= f.submit 'Update' %>
+                <% end %>
+              </div>
+          </a>
+          <div>
+            <h4>A little about me...</h4>
+              <%= form_for @profile, html: { method: :put } do |f| %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.label :bio %>
+                <%= f.text_field :bio %><br>
+                <%= f.submit 'Update' %>
+              <% end %>
+          </div>
+        </div>
+
+        <div class="col-sm-4 portfolio-item">
+          <div class="caption">
+              <div class="caption-content">
+                  <i class="fa fa-search-plus fa-3x"></i>
+              </div>
+          </div>
+          <h4>My Lists
+          </h4>
+          <div class="list-group">
+            <% @user.lists.each do |list|%>
+              <span class="list-group-item"><%= link_to list.title, list_path(list.id) %></span>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-sm-4 portfolio-item">
+          <div class="caption">
+              <div class="caption-content">
+                  <i class="fa fa-search-plus fa-3x"></i>
+              </div>
+          </div>
+          <h4>My Groups
+          </h4>
+          <div class="list-group">
+            <% @user.groups.each do |group|%>
+              <span class="list-group-item"><%= link_to group.name, group_path(group.id) %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <h3>My Stats</h3>
+        <div class="col-sm-4 portfolio-item">
+          <h4>Total Lists Created</h4>
+          <%= @user.lists.count %>
+        </div>
+        <div class="col-sm-4 portfolio-item">
+          <h4>Total Groups Created</h4>
+          <%= @user.created_groups.count %>
+        </div>
+        <div class="col-sm-4 portfolio-item">
+          <h4>Total Votes Given</h4>
+          <%= Vote.where(user_id: @user.id ).count %>
+        </div>
+      </div>
+
+  </div>
+</section>
 
