@@ -1,1 +1,8 @@
-<%= react_component 'Lists', {url: @url}%>
+<div class="container">
+    <div class="row">
+      <%= react_component 'Lists', {url: @url}%>
+    </div>
+    <div class="row">
+      <%= react_component "Comments", {id: @list.id, type:"Lists"}%>
+    </div>
+</div>

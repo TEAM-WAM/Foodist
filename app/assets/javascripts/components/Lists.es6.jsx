@@ -6,7 +6,7 @@ class Lists extends React.Component{
   }
 
   componentDidMount(){
-    url = "http://localhost:3000/j/lists" + this.props.url
+    url = "/j/lists" + this.props.url
   fetch(url)
   .then((response)=> {return(response.json())})
   .then((jsonresponse) => {this.setState({lists: jsonresponse.lists})})
@@ -22,9 +22,9 @@ class Lists extends React.Component{
         })
     }
     return(
-      <div className="AllLists">
+      <table className="AllLists table table-bordered">
         {lists}
-      </div>
+      </table>
     )
   }
 }
