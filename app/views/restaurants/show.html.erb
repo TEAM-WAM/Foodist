@@ -46,10 +46,13 @@
             <div class="comment-form">
               <%= react_component "Comments", {id: @restaurant.id, type:"Restaurants"}%>
             </div>
+          </div>
 
+          <div class="col-sm-4">
+            <h4>Add <%= @restaurant.name %> to a list!</h4>
+            <%= react_component 'MyListsBox', {rest: @restaurant, lists: current_user.lists.to_json}%>
           </div>
 
         </div>
-
     </div>
 </div>
