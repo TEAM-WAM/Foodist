@@ -10,7 +10,7 @@ class ListsController < ApplicationController
         lists_array << {list => votes}
       end
       trending = lists_array.sort{ |a,b| a.values.flatten <=> b.values.flatten}.reverse[0..10]
-      trending.each {|list| @lists << list.keys[0]}
+      trending.each {|list| @trending << list.keys[0]}
   end
 
   def show
