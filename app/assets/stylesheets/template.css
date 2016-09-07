@@ -34,7 +34,7 @@ hr.light {
 }
 
 a {
-    color: #9c27b0;
+    color: #771010;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -42,8 +42,9 @@ a {
 
 a:hover,
 a:focus {
-    color: #9c27c1;
+    color: #771010;
     outline: 0;
+    text-decoration: none;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -88,7 +89,7 @@ p {
 }
 
 .text-primary {
-    color: #9c27b0;
+    color: #771010;
 }
 
 .modal-content {
@@ -122,7 +123,7 @@ footer {
 
 .navbar-header > .navbar-brand {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    color: #9c27b0;
+    color: #e2afaf;
     padding: 15px;
     -webkit-transition: padding 1s ease-in;
     -moz-transition: padding 1s ease-in;
@@ -131,7 +132,7 @@ footer {
 
 .navbar-header > .navbar-brand:hover,
 .navbar-header > .navbar-brand:focus {
-    color: #8b27b0;
+    color: #e2afaf;
 }
 
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
@@ -156,7 +157,7 @@ footer {
 
 .navbar-default .nav > li.active>a,
 .navbar-default .nav>li.active>a:focus {
-    color: #9c27b0 !important;
+    color: #e2afaf !important;
     background-color: transparent;
 }
 
@@ -191,6 +192,40 @@ footer {
 #welcome {
     color: #fff;
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
+}
+
+#experiences0 {
+    background-color: #656464;
+    border: 3px solid #771010;
+    padding-top: 20px;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-right: 0px;
+    margin-left: 0px;
+    font-size: 18px;
+}
+
+#listexp {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+#list_r_heads {
+    border-top: 3px solid #771010;
+    border-left: 3px solid #771010;
+    border-right: 3px solid #771010;
+    background-color: #656464;
+    padding: 20px;
+    font-size: 24px;
+}
+
+#list_r_values {
+    border-bottom: 3px solid #771010;
+    border-left: 3px solid #771010;
+    border-right: 3px solid #771010;
+    background-color: #656464;
+    padding: 20px;
+    font-size: 20px;
 }
 
 @media(min-width:768px) {
@@ -230,14 +265,14 @@ footer {
 
     .navbar-default.affix .navbar-header .navbar-brand {
         font-size: 24px;
-        color: #9c27b0;
+        color: #771010;
         padding: 20px;
-        letter-spacing: 1px;
+        /*letter-spacing: 1px;*/
     }
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
     .navbar-default.affix .navbar-header .navbar-brand:focus {
-        color: #e2afaf;
+        color: white;
     }
 
     .navbar-default.affix .nav > li>a,
@@ -248,7 +283,7 @@ footer {
 
     .navbar-default.affix .nav > li>a:hover,
     .navbar-default.affix .nav>li>a:focus:hover {
-        color: #e2afaf;
+        color: #771010;
     }
 }
 
@@ -304,7 +339,7 @@ header .header-content .inner p {
 }
 
 footer {
-    background-color:#2d2d2d;
+    background-color:#e2afaf;
 }
 
 @media(min-width:768px) {
