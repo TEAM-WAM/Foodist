@@ -27,7 +27,7 @@ toggleChildren(){
             </a>
           </div>
       <div className="row collapse" id={dataId}>
-        <div className="row">
+        <div className="row" id="list_r_heads">
             {/* iterate this for field headers  */}
             <div className="col-xs-3">
               <strong>Restaurant</strong>
