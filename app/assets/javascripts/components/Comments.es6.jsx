@@ -46,7 +46,7 @@ class Comments extends React.Component {
       <div>
             <ul className="list-group">{
               this.state.comments.map((comment, i)=>{
-                return (<Comment key={i} data={comment} />)
+                return (<Comment key={i} data={comment} votes={comment.votes} user_id={this.props.user_id} parent_id={i+1} type="Comment" />)
               }
                 )
             }
@@ -58,17 +58,9 @@ class Comments extends React.Component {
           <input ref="commentBody" name="comment[body]" placeholder="Write your comment here..." type="text" />
           <input type='submit' value="comment" />
         </form>
-        : <button onClick={this.toggleForm}>Add Comment</button>}
+        :
+        <button onClick={this.toggleForm}>Add Comment</button>}
         </div>: null}
-            <ul>{
-              this.state.comments.map((comment, i)=>{
-                return (
-                  <Comment key={i} data={comment} votes={comment.votes} user_id={this.props.user_id} parent_id={i+1} type="Comment"/>
-                )
-              }
-                )
-            }
-            </ul>
       </div>
     )
   }
