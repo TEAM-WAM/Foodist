@@ -8,6 +8,43 @@ http://www.bootstrapzero.com
 @import url(https://fonts.googleapis.com/css?family=Questrial);
 @import url(http://fonts.googleapis.com/css?family=Dancing+Script:700);
 
+
+#div1 {
+    width: 250px;
+    height: 330px;
+    padding: 30px;
+    margin-right: 5%;
+    border: 2px solid white;
+    border-radius: 7%;
+    list-style: none;
+}
+
+#div1 li {
+   list-style: none;
+}
+
+#user-list-restaurants-container {
+/*    float: right;
+    margin-right: 35%;
+    margin-top: -7.1%;*/
+    position: absolute;
+    right: 700px;
+    top: 135px;
+}
+
+#restaurant-search {
+  margin-left: 5%;
+  margin-top: 8%;
+  width: 40%
+}
+
+#restaurant-search li {
+  list-style: none;
+  padding-top: 5px;
+}
+
+
+
 html,
 body {
     width: 100%;
