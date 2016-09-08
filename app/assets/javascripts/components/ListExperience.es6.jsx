@@ -2,6 +2,7 @@ class ListExperience extends React.Component{
   render(){
     return(
     <div className="row values ListExperience" id="listexp" draggable="true">
+
       {/* this section iterated per field values */}
       <div className="col-xs-2 values">
         {this.props.data.date_of_experience}
@@ -21,6 +22,7 @@ class ListExperience extends React.Component{
       <div className="col-xs-2 values">
         {this.props.data.notes}
       </div>
+
     </div>
     )
   }
