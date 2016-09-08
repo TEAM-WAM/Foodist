@@ -1,20 +1,29 @@
-<h1>Create New List</h1>
+<section>
+  <div class="container">
+      <h1>Create a New List</h1>
 
-<% if @list.errors.any? %>
-  <div id='error_explanation'>
-    <h2>
-      <%= pluralize(@list.errors.count, 'error') %> prohibited this article from being saved:
-    </h2>
-    <ul>
-      <% @list.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <% if @list.errors.any? %>
+        <div id='error_explanation'>
+          <h2>
+            <%= pluralize(@list.errors.count, 'error') %> prohibited this article from being saved:
+          </h2>
+          <ul>
+            <% @list.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-    </ul>
-  </div>
-<% end %>
 
-<%= form_for @list do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_field :title %><br />
-  <%= f.submit %>
-<% end %>
+      <%= form_for @list do |f| %>
+        <%= f.label :title %>:
+        <%= f.text_field :title, :class => "form-control"  %><br />
+        <%= f.submit "Create List", :class => "btn btn-danger" %>
+      <% end %>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+  </div>
+</section>

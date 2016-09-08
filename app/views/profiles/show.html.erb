@@ -19,7 +19,7 @@
                       <i class="fa fa-search-plus fa-3x"></i>
                   </div>
               </div>
-              <img src=<%= @profile.avatar.url %> class="img-responsive" alt="">
+              <img src=<%= @profile.avatar.url %> id="profile-pic" class="img-rounded" alt="profile pic">
           </a>
           <div>
             <h4>A little about me...</h4>
@@ -67,9 +67,13 @@
           </div>
         </div>
       </div>
-
+      <br>
+      <br>
+      <hr>
       <div class="row">
         <h3>My Stats</h3>
+        <br>
+        <br>
         <div class="col-sm-4 portfolio-item">
           <h4>Total Lists Created</h4>
           <%= @profile_user.lists.count %>
@@ -83,6 +87,8 @@
           <%= Vote.where(user_id: @profile_user.id ).count %>
         </div>
       </div>
+      <br>
+      <br>
 
   </div>
 </section>

@@ -1,59 +1,61 @@
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <h2><%= @restaurant.name %></h2>
-            <hr class="star-primary">
-        </div>
-
-        <div class="row">
-          <div class="col-sm-4">
-            <h3>At a Glance</h3>
-            <ul>
-              <li>Cuisine: <%= @restaurant.cuisines %></li>
-              <li>Average Cost for Two: $<%= @restaurant.average_cost_for_two%></li>
-              <li>Online Delivery:
-                <% if @restaurant.has_online_delivery %>
-                  <%= "Yes" %>
-                <% else %>
-                  <%= "No" %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-          <div class="col-sm-4">
-            <img src=<%= @restaurant.featured_img %> onerror="this.src='http://www.wall321.com/thumbnails/detail/20120719/fruits%20green%20apples%20apples%201440x900%20wallpaper_www.wall321.com_11.jpg'" class="img-thumbnail" >
-            <strong>Find it at:</strong> <%= @restaurant.address %> <%= @restaurant.locality %> <%= @restaurant.city %> <%= @restaurant.zipcode %>
-          </div>
-          <div class="col-sm-4">
-            <h3>More Info</h3>
-            <ul>
-              <li><a href="<%= @restaurant.restaurant_url %>">Visit <%= @restaurant.name %>'s Site</a></li>
-              <li><a href="<%= @restaurant.menu_url %>">Peruse the menu here</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <% if user_signed_in? %>
-              <%= react_component('Votes', {user_id: current_user.id, vote: @restaurant.restaurant_vote_count, parent_id: @restaurant.id, parent_class: "Restaurant"}) %>
-            <% else %>
-              <h4>Net Votes:<%= @restaurant.restaurant_vote_count %></h4>
-              <h4>Must be loggen in to vote.</h4>
-            <% end %>
+<section>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 text-center">
+              <h2><%= @restaurant.name %></h2>
+              <hr class="star-primary">
           </div>
 
-          <div class="col-sm-4">
-            <h4>Comments:</h4>
-            <div class="comment-form">
-              <%= react_component "Comments", {id: @restaurant.id, type:"Restaurants", user_id: current_user.id}%>
+          <div class="row">
+            <div class="col-sm-4">
+              <h3>At a Glance</h3>
+              <ul class="list-group">
+                <li class="list-group-item">Cuisine: <%= @restaurant.cuisines %></li>
+                <li class="list-group-item">Average Cost for Two: $<%= @restaurant.average_cost_for_two%></li>
+                <li class="list-group-item">Online Delivery:
+                  <% if @restaurant.has_online_delivery %>
+                    <%= "Yes" %>
+                  <% else %>
+                    <%= "No" %>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+            <div class="col-sm-4">
+              <img src=<%= @restaurant.featured_img %> onerror="this.src='http://www.wall321.com/thumbnails/detail/20120719/fruits%20green%20apples%20apples%201440x900%20wallpaper_www.wall321.com_11.jpg'" class="img-thumbnail" >
+              <cite><strong></strong> <%= @restaurant.address %> <%= @restaurant.locality %> <%= @restaurant.city %> <%= @restaurant.zipcode %></cite>
+            </div>
+            <div class="col-sm-4">
+              <h3>More Info</h3>
+              <ul class="list-group">
+                <li class="list-group-item"><a href="<%= @restaurant.restaurant_url %>">Visit <%= @restaurant.name %>'s Site</a></li>
+                <li class="list-group-item"><a href="<%= @restaurant.menu_url %>">Peruse the menu here</a></li>
+              </ul>
             </div>
           </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <% if user_signed_in? %>
+                <%= react_component('Votes', {user_id: current_user.id, vote: @restaurant.restaurant_vote_count, parent_id: @restaurant.id, parent_class: "Restaurant"}) %>
+              <% else %>
+                <h4>Net Votes:<%= @restaurant.restaurant_vote_count %></h4>
+                <h4>Must be loggen in to vote.</h4>
+              <% end %>
+            </div>
 
-          <div class="col-sm-4">
-            <h4>Add <%= @restaurant.name %> to a list!</h4>
-            <%= react_component 'MyListsBox', {rest: @restaurant, lists: current_user.lists.to_json}%>
+            <div class="col-sm-4">
+              <h4>Comments:</h4>
+              <div class="comment-form">
+                <%= react_component "Comments", {id: @restaurant.id, type:"Restaurants", user_id: current_user.id}%>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <h4>Add <%= @restaurant.name %> to a list!</h4>
+              <%= react_component 'MyListsBox', {rest: @restaurant, lists: current_user.lists.to_json}%>
+            </div>
+
           </div>
-
-        </div>
-    </div>
-</div>
+      </div>
+  </div>
+</section>

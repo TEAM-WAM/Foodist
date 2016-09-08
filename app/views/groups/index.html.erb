@@ -1,21 +1,23 @@
-<div class='groups'>
+<section>
+  <div class="container">
+    <div class="col-lg-12">
+      <h1 class="h2-red">Groups</h1>
 
-  <h1>Groups</h1>
+      <h3>Explore our user created themed groups</h3>
 
-  <h3>All groups that have been created:</h3>
+      <%= link_to 'Create a new Group', new_group_path,  :class => "btn btn-danger" %>
 
-  <%= link_to 'Create a new Group', new_group_path %>
+      <div class="row">
+        <ul id='groups-list'>
+          <% @groups.order('created_at DESC').each do |group| %>
+            <div id='group-box'>
+              <h3><%= link_to group.name, group_path(group) %></h3>
+                <%= image_tag group.avatar.url, size: '100x100', :class => "img-rounded" %>
+            </div>
+          <% end %>
+        </ul>
+      </div>
 
-    <ul id='groups-list'>
-      <% @groups.order('created_at DESC').each do |group| %>
-        <div id='group-box'>
-          <h3><%= link_to group.name, group_path(group) %></h3>
-          <div class="">
-            <%= image_tag group.avatar.url, size: '100x100'%>
-          </div>
-        </div>
-      <% end %>
-    </ul>
-
-
-</div>
+    </div>
+  </div>
+</section>
