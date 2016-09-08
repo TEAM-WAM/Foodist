@@ -2,33 +2,37 @@
   <div class="container">
     <div class="col-lg-12">
 
-      <div class="groups">
+    <div id='group-picture'>
+      <%= image_tag @group.avatar.url %>
+    </div>
 
-        <h1 class="h2-red"><%= @group.name %></h1>
+  <h1><%= @group.name %></h1>
 
-         <%= image_tag @group.avatar.url, :size => "300x300", :class => "img-rounded"   %><br>
+  <b>Created by:  <strong><%= User.find(@group.creator_id).username %></strong></b>
 
-        <b>Created by: <em><%= User.find(@group.creator_id).username %></em></b>
+  <p><b>Group Description:</b>  <%= @group.description %></p>
+
 
         <p><b>Group Description:</b> <%= @group.description %></p>
 
         <b>Members: </b><em><%= @group.members.count %></em><br><br>
 
-        <% if user_signed_in? %>
-          <% if current_user.id != @group.creator_id %>
-              <% if !@group.members.find_by(id: current_user.id) %>
-                <%= link_to "Join Group", :controller => :groups, :action => :add, group_id: @group.id, user_id: current_user.id %>
-              <% end %>
+    <% if user_signed_in? %>
+      <% if current_user.id != @group.creator_id %>
+          <% if !@group.members.find_by(id: current_user.id) %>
+            <%= link_to "Join Group", :controller => :groups, :action => :add, group_id: @group.id, user_id: current_user.id %>
           <% end %>
-        <% end %>
+      <% end %>
+    <% end %>
 
-        <% if user_signed_in? %>
-          <% if @group.creator_id == current_user.id %>
-            <%= link_to 'Edit Group', edit_group_path(@group) %>
-          <% end %>
-        <% end %>
-        <%= react_component 'Lists', {url: "/groups/#{@id}"}%>
-      </div>
-    </div>
-  </div>
-</section>
+  <% if user_signed_in? %>
+    <% if @group.creator_id == current_user.id %>
+      <%= link_to 'Edit Group', edit_group_path(@group) %>
+    <% end %>
+  <% end %>
+
+  <%= react_component 'GroupList', {group: @group} %>
+
+  </section>
+
+</div>
