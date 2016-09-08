@@ -1,0 +1,33 @@
+// Place all the styles related to the List_restaurants controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#div1 {
+    width: 250px;
+    height: 330px;
+    padding: 10px;
+    margin-right: 5%;
+    border: 1px solid rgb(7, 194, 227);
+    list-style: none;
+}
+
+#div1 li {
+  list-style: none;
+}
+
+#user-list-restaurants-container {
+  margin-top: -44%;
+  float: right;
+  margin-right: 5%;
+}
+
+#restaurant-search {
+  margin-left: 5%;
+  margin-top: 8%;
+  width: 40%
+}
+
+#restaurant-search li {
+  list-style: none;
+  padding-top: 5px;
+}
