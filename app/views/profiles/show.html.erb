@@ -13,18 +13,19 @@
 
       <div class="row">
         <div class="col-sm-4 portfolio-item">
-          <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-              <div class="caption">
-                  <div class="caption-content">
-                      <i class="fa fa-search-plus fa-3x"></i>
-                  </div>
-              </div>
-              <img src=<%= @profile.avatar.url %> id="profile-pic" class="img-rounded" alt="profile pic">
-          </a>
-          <div>
+          <!-- <div class="panel panel-info"> -->
+            <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                <div class="caption">
+                    <div class="caption-content">
+                        <i class="fa fa-search-plus fa-3x"></i>
+                    </div>
+                </div>
+                <img src=<%= @profile.avatar.url %> id="profile-pic" class="img-rounded" alt="profile pic">
+            </a>
+
             <h4>A little about me...</h4>
             <p><%= @profile.bio %></p>
-          </div>
+          <!-- </div> -->
         </div>
 
         <div class="col-sm-4 portfolio-item">
