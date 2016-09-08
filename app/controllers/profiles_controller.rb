@@ -1,12 +1,14 @@
 class ProfilesController < ApplicationController
 
   before_action :authenticate_user!, only: [:show, :edit, :update]
+
   def index
   end
+
   def show
     @user = User.find(current_user.id)
     check_user = User.find(params[:id]).profile
-    if check_user
+    if check_user.present?
       @profile = Profile.find(params[:id])
       @profile_user = User.find(Profile.find(params[:id]).user_id)
     else
