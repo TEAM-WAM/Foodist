@@ -20,12 +20,22 @@ class ListsController < ApplicationController
   end
 
   def update
-    if request.xhr?
-      @list = List.find(params[:id])
-      if @list.restaurants.include?(Restaurant.find(params[:rest_id]))
-        render json: "true".to_json
-      else
-        render json: "false".to_json
+    if params[:updating] == "title"
+      list = List.find(params[:list][:id])
+        if current_user == list.listable
+          list.update(title: params[:title])
+          # binding.pry
+          render json: list
+        end
+    else
+      if request.xhr?
+        @list = List.find(params[:id])
+
+        if @list.restaurants.include?(Restaurant.find(params[:rest_id]))
+          render json: "true".to_json
+        else
+          render json: "false".to_json
+        end
       end
     end
   end
