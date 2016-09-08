@@ -41,7 +41,7 @@ class Comments extends React.Component {
     return (
 
       <div>
-      {this.state.showComments ? <button type="button" className="btn btn-default btn-sm"><span className="glyphicon glyphicon-pencil" onClick={this.toggleComments}></span> </button> :<button type="button" className="btn btn-default btn-sm"><span className="glyphicon glyphicon-pencil icon-flipped" onClick={this.toggleComments}></span></button>}
+      {this.state.showComments ? <button type="button" className="btn btn-default btn-sm" id="pencil"><span className="glyphicon glyphicon-pencil" onClick={this.toggleComments}></span> </button> :<button type="button" className="btn btn-default btn-sm"><span className="glyphicon glyphicon-pencil icon-flipped" onClick={this.toggleComments}></span></button>}
       {this.state.showComments ?
       <div>
             <ul className="list-group">{
@@ -54,12 +54,14 @@ class Comments extends React.Component {
 
 
           {this.state.showForm ?
-        <form id='newCommentForm' action='/comments' onSubmit={this.handleCommentSubmit.bind(this)} >
-          <input ref="commentBody" name="comment[body]" placeholder="Write your comment here..." type="text" />
-          <input type='submit' value="comment" />
+        <form className="form-inline" id='newCommentForm' action='/comments' onSubmit={this.handleCommentSubmit.bind(this)} >
+          <div className="form-group">
+            <input className="form-control" ref="commentBody" name="comment[body]" placeholder="Write your comment here..." type="text" />
+          </div>
+          <button className="btn btn-success" type='submit'>Comment</button>
         </form>
         :
-        <button onClick={this.toggleForm}>Add Comment</button>}
+        <button className="btn btn-success" onClick={this.toggleForm}>Add Comment</button>}
         </div>: null}
       </div>
     )

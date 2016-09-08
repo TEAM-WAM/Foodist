@@ -6,7 +6,7 @@ class Lists extends React.Component{
   }
 
   componentDidMount(){
-    url = "/j/lists" + this.props.url
+    url = "/j/lists/" + this.props.url
   fetch(url)
   .then((response)=> {return(response.json())})
   .then((jsonresponse) => {this.setState({lists: jsonresponse.lists})})
