@@ -120,29 +120,29 @@ class ListRestaurant extends React.Component{
             })}
             <div className="row">
               <form ref='form' onSubmit={this.handleSubmit.bind(this)}>
-                <div className="col-xs-2 form">
-                  <input type="date" name="date" />
+                <div className="form-group col-xs-2 form">
+                  <input className="form-control" type="date" name="date" />
                 </div>
-                <div className="col-xs-2 form">
-                  <input type="text" name="main_dish" placeholder="Main Dish" />
+                <div className="form-group col-xs-2 form">
+                  <input className="form-control" type="text" name="main_dish" placeholder="Main Dish" />
                 </div>
-                <div className="col-xs-2 form">
-                  <input type="text" name="price" placeholder="Price" />
+                <div className="form-group col-xs-2 form">
+                  <input className="form-control" type="text" name="price" placeholder="Price" />
                 </div>
-                <div className="col-xs-2 form">
-                  <input type="text" name="party_size" placeholder="Party Size" />
+                <div className="form-group col-xs-2 form">
+                  <input className="form-control" type="text" name="party_size" placeholder="Party Size" />
                 </div>
-                <div className="col-xs-2 form">
-                  <input type="text" name="wait_time" placeholder="Wait Time" />
+                <div className="form-group col-xs-2 form">
+                  <input className="form-control" type="text" name="wait_time" placeholder="Wait Time" />
                 </div>
-                <div className="col-xs-2 form">
-                  <input type="text" name="notes" placeholder="Notes" />
-                </div>
-                <div className="row">
+                <div className="form-group col-xs-2 form">
+                  <input className="form-control" type="text" name="notes" placeholder="Notes" />
                 </div>
                 <div className="row">
-                  <input type="submit" value="Add Experience" />
                 </div>
+                <div className="row">
+                  <input className= "btn btn-danger" type="submit" value="Add Experience" />
+                </div><br />
               </form>
             </div>
           </div>
