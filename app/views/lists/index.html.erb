@@ -1,18 +1,22 @@
-<div class="container">
-  <% if current_user %>
-    <% if user_signed_in? %>
-        <% @id = current_user.id %>
-    <% else %>
-        <% @id = 0 %>
-    <% end %>
+<section>
+  <div class="container">
+    <div class="col-lg-12 text-center">
+      <% if current_user %>
+        <% if user_signed_in? %>
+            <% @id = current_user.id %>
+        <% else %>
+            <% @id = 0 %>
+        <% end %>
+        <div class="row">
+          <h1 class="h2-red">My Lists</h1>
+          <%= react_component 'Lists', {url: '', user_id: @id} %></br >
+        </div>
+      <% end %>
 
-  <div class="row">
-    <h1>My Lists</h1>
-    <%= react_component 'Lists', {url: '', user_id: @id} %></br >
+      <div class="row">
+        <h1 class="h2-red">Trending Lists</h1>
+        <%= react_component 'Lists', {url: '/trending'} %></br >
+      </div>
+    </div>
   </div>
-  <% end %>
-  <div class="row">
-    <h1>Trending Lists</h1>
-    <%= react_component 'Lists', {url: '/trending'} %></br >
-  </div>
-</div>
+</section>
