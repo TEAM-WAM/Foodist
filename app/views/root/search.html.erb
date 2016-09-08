@@ -30,38 +30,6 @@
   </li>
 </div>
 
-<style>
-#div1 {
-    width: 250px;
-    height: 330px;
-    padding: 10px;
-    margin-right: 5%;
-    border: 1px solid rgb(7, 194, 227);
-    list-style: none;
-}
-
-#div1 li {
-  list-style: none;
-}
-
-#user-list-restaurants-container {
-  margin-top: -44%;
-  float: right;
-  margin-right: 5%;
-}
-
-#restaurant-search {
-  margin-left: 5%;
-  margin-top: 8%;
-  width: 40%
-}
-
-#restaurant-search li {
-  list-style: none;
-  padding-top: 5px;
-}
-
-</style>
 <div id="user-list-restaurants-container">
   <% if user_signed_in? %>
     <h3><%= current_user.first_name %>'s List</h3>
