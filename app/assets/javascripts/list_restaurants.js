@@ -14,13 +14,14 @@ function drop(ev) {
     ev.preventDefault();
 
     var element = ev.dataTransfer.getData("text");
-    var parentDiv = $(ev.target).parent().parent().parent();
-    var listId = parentDiv.children().attr('id');
-    var restaurantsList = parentDiv.children().last();
+    var parentDiv = $(ev.target).parent();
+    var listId = parentDiv.children().children().first().attr('id');
+    var restaurantsList = parentDiv.children().children().last();
     var data = {
       restaurant_id: element,
       list_id: listId
     }
+    // debugger;
     var url = "/lists/" + data.list_id + "/list_restaurants"
     $.post(url, data)
       .done((response) => {
