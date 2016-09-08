@@ -2,15 +2,39 @@ class List extends React.Component{
 constructor(){
   super();
   this.state = {
-    showChildren: false
+    showChildren: false,
+    showEditList: false,
+    currentList: ''
+  }
+  this.editListTitle = this.editListTitle.bind(this)
+  this.toggleEdit = this.toggleEdit.bind(this)
+}
+
+  componentDidMount(){
+    this.setState({currentList: this.props.data.list})
   }
 
-}
+  toggleChildren(){
+    this.setState({showChildren: !this.state.showChildren})
+  }
 
-toggleChildren(){
-  this.setState({showChildren: !this.state.showChildren})
-}
+  toggleEdit(){
+    this.setState({showEditList: !this.state.showEditList})
+  }
 
+  editListTitle(e){
+    e.preventDefault();
+    url = "/lists/" +  this.state.currentList.id
+    $.ajax({
+      url: url,
+      type: 'PUT',
+      data: {list: this.state.currentList,
+              updating: 'title',
+              title: this.refs.listTitle.title.value}
+      }).done((response) => {this.setState({currentList: response})}.bind(this));
+
+      this.toggleEdit()
+  }
 
   render(){
     var dataId = "restaurants" + this.props.dataId
@@ -27,7 +51,18 @@ toggleChildren(){
                   user_id={this.props.user_id}/>
             </div>
             <div className="col-md-8">
-              <h2><strong>{this.props.data.title}</strong></h2>
+              {this.state.showEditList ?
+                <h2><strong>
+                  <form ref="listTitle" onSubmit={this.editListTitle.bind(this)}>
+                    <input type="text" name="title" placeholder={this.state.currentList.title} />
+                  </form>
+                </strong></h2>
+                :
+                <h2><strong>{this.state.currentList.title}</strong></h2>
+              }
+            </div>
+            <div className="col-md-2">
+              <i className="glyphicon glyphicon-edit" onClick={this.toggleEdit}></i>
             </div>
           </div>
           <div className="row">
