@@ -7,6 +7,7 @@
 
       <%= link_to 'Create a new Group', new_group_path,  :class => "btn btn-danger" %>
 
+<<<<<<< 287cd0bf97f29fa24c586028adf8735ef51e62ab
       <div class="row">
         <ul id='groups-list'>
           <% @groups.order('created_at DESC').each do |group| %>
@@ -21,3 +22,12 @@
     </div>
   </div>
 </section>
+=======
+  <% if user_signed_in? %>
+    <%= react_component('Groups', {groups: @groups, user_id: current_user.id}) %>
+  <% else %>
+    <%= react_component('Groups', {groups: @groups}) %>
+  <% end %>
+  
+</div>
+>>>>>>> group can create lists but doesnt show

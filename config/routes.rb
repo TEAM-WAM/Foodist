@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   get '/j/lists/:id', to: 'lists#jshow'
   get '/j/lists/', to: 'lists#jindex'
   get '/profiles', to: 'profiles#index'
+
   # put '/lists/:list_id/list_restaurants/:id/updatevisited', to: 'list_restaurants#updatevisited'
+
+  get '/lists/groups/:id/new', to: 'lists#glistsnew'
   # get '/j/restaurants/:id/lists', to: 'list_restaurant#jrestaurantlists'
   get '/j/restaurants/:id/comments', to: "comments#jrestaurants"
 
