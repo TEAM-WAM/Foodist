@@ -21,10 +21,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
-      render json: {
-         group: @group,
-         avatar: @group.avatar.url
-       }
+      render json: @group
     else
       render 'new'
     end
