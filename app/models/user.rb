@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   # after_save :create_profile
 
-  after_save :create_profile
+  after_create :create_profile
 
   #to call activerecord association for has_one profile, use build_profile
   has_one :profile, dependent: :destroy
