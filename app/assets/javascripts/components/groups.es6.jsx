@@ -1,24 +1,34 @@
 class Groups extends React.Component {
 
+  constructor() {
+    super();
+    this.state = {
+      toggleForm: false
+    }
+  }
+
+  toggle() {
+    this.setState({showChildren: !this.state.showChildren})
+  }
+
   render() {
     return(
       <div className='groups'>
 
-        <h1>Groups</h1>
+        <a onClick={this.toggle.bind(this)} href=''>Create a group</a> 
+        {this.state.toggleForm ?
+          <form>
+            Name:<br/>
+            <input type="text" name='group[name]'/><br/>
+            Description:
+            <input type='text' name='group[description]'/>
+            <input type='hidden' name='group[creator_id]' value={this.props.user_id} />
+            <input type='submit' value='Create Group' />
+          </form>
+          :
 
-        <h3>All groups that have been created:</h3>
+        }
 
-        <form>
-          Name:<br/>
-          <input type="text" name='name'/><br/>
-          Description:
-          <input type='text' name='description'/>
-          <input type='submit' value='Create Group' />
-        </form>
-
-        <ul id='groups-list'>
-          <p>Description: {this.props.group.description}</p>
-        </ul>
       </div>
     )
   }
