@@ -18,7 +18,19 @@ toggleChildren(){
     return(
     <div className="row List">
           <div className="row">
-            <h2><strong>{this.props.data.title}</strong></h2>
+
+            <div className="col-md-2">
+              <Votes
+                  vote={this.props.votes}
+                  parent_id={this.props.parent_id}
+                  parent_class={this.props.type}
+                  user_id={this.props.user_id}/>
+            </div>
+            <div className="col-md-8">
+              <h2><strong>{this.props.data.title}</strong></h2>
+            </div>
+          </div>
+          <div className="row">
             <a href={dataIdClass} data-toggle="collapse" onClick={this.toggleChildren.bind(this)}>
               {this.state.showChildren ?
                 <i className="glyphicon glyphicon-chevron-up"></i> :
@@ -44,15 +56,9 @@ toggleChildren(){
 
         </div>
         {this.props.data.restaurants.map((list_r, i)=>{
-              return(<ListRestaurant key={i} dataId={i} data={list_r}/>)
+              return(<ListRestaurant listId={this.props.data.list.id} key={i} dataId={i} data={list_r}/>)
             })}
       </div>
-      <Votes
-      vote={this.props.votes}
-      parent_id={this.props.parent_id}
-      parent_class={this.props.type}
-      user_id={this.props.user_id}
-      />
     </div>
     )
   }
