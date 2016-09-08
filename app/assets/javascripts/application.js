@@ -16,6 +16,8 @@
 //= require bootstrap-sprockets
 //= require react
 //= require react_ujs
+//= require ReactDnDHTML5Backend.min.js
+//= require ReactDnD
 //= require components
 
 //= require_tree .

@@ -3,13 +3,19 @@ class ListRestaurant extends React.Component{
     super();
     this.state = {
       showChildren: false,
-      experiences: []
+      experiences: [],
+      listRestaurant: ''
     }
+    this.toggleVisted = this.toggleVisted.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount(){
     this.setState({experiences: this.props.data.experiences})
+    this.setState({listRestaurant: this.props.data.list})
+    if(this.state.listRestaurant.tried == null){
+      this.state.listRestaurant.tried = false
+    }
   }
 
   handleSubmit(e){
@@ -39,6 +45,17 @@ class ListRestaurant extends React.Component{
   toggleChildren(){
     this.setState({showChildren: !this.state.showChildren})
   }
+
+  toggleVisted(){
+    url = "/lists/" +  this.props.listId + "/list_restaurants/" + this.props.data.list.id
+    $.ajax({
+      url: url,
+      type: 'PUT',
+      data: {list_restaurant: this.state.listRestaurant,
+              updating: 'tried'}
+      }).done((response) => {this.setState({listRestaurant: response})}.bind(this));
+  }
+
   render(){
     var dataId = "experiences" + this.props.dataId
     var dataIdClass = "#" + dataId
@@ -59,9 +76,9 @@ class ListRestaurant extends React.Component{
             </div>
             <div className="col-xs-3">
               <strong>
-                {this.props.data.list.tried ?
-                  <i className="glyphicon glyphicon-ok"></i>:
-                  <i className="glyphicon glyphicon-remove"></i>
+                {this.state.listRestaurant.tried ?
+                  <i className="glyphicon glyphicon-ok" onClick={this.toggleVisted}></i>:
+                  <i className="glyphicon glyphicon-remove" onClick={this.toggleVisted}></i>
                 }
               </strong>
             </div>

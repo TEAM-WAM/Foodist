@@ -43,7 +43,7 @@ class Comments extends React.Component {
       <div>
       {this.state.showComments ? <button type="button" className="btn btn-default btn-sm" id="pencil"><span className="glyphicon glyphicon-pencil" onClick={this.toggleComments}></span> </button> :<button type="button" className="btn btn-default btn-sm"><span className="glyphicon glyphicon-pencil icon-flipped" onClick={this.toggleComments}></span></button>}
       {this.state.showComments ?
-      <div>
+        <div>
             <ul className="list-group">{
               this.state.comments.map((comment, i)=>{
                 return (<Comment key={i} data={comment} votes={comment.votes} user_id={this.props.user_id} parent_id={i+1} type="Comment" />)
@@ -51,7 +51,6 @@ class Comments extends React.Component {
                 )
             }
             </ul>
-
 
           {this.state.showForm ?
         <form className="form-inline" id='newCommentForm' action='/comments' onSubmit={this.handleCommentSubmit.bind(this)} >
@@ -64,6 +63,7 @@ class Comments extends React.Component {
         <button className="btn btn-success" onClick={this.toggleForm}>Add Comment</button>}
         </div>: null}
       </div>
+
     )
   }
 }
