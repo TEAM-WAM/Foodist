@@ -136,7 +136,7 @@ body {
 body {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
     background-color: #8e8787;
-    color: #d3d3d3;
+    color: #771010;
     webkit-tap-highlight-color: #222;
 }
 
@@ -343,8 +343,15 @@ footer {
     border-left: 3px solid #771010;
     border-right: 3px solid #771010;
     background-color: #656464;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     font-size: 20px;
+    width: 1210px;
+    margin-left: .9px;
+}
+
+#centered-trending{
+    padding-left: 15px;
 }
 
 @media(min-width:768px) {
