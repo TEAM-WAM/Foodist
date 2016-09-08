@@ -8,6 +8,9 @@ http://www.bootstrapzero.com
 @import url(https://fonts.googleapis.com/css?family=Questrial);
 @import url(http://fonts.googleapis.com/css?family=Dancing+Script:700);
 
+#searchbar-toggle.collapse {
+    visibility: collapse;
+}
 
 #div1 {
     width: 250px;
@@ -44,7 +47,85 @@ http://www.bootstrapzero.com
   padding-top: 5px;
 }
 
+#search-form {
+    box-sizing: border-box;
+    text-align: center;
+}
 
+#search-inputs {
+    width: 91%;
+}
+
+#input-location {
+    width: 25%;
+    height: 57px;
+    font-size: 24px;
+}
+
+#input-search {
+    width: 74%;
+    height: 57px;
+    font-size: 24px;
+}
+
+#input-location:focus,
+#input-search:focus {
+    outline: 0;
+}
+
+#form-submit {
+    margin-left: 7px;
+    background-color: #d3d3d3;
+}
+
+#close-search {
+    padding-top: 5px;
+    padding-left: 15px;
+}
+
+#close-search:hover,
+#close-search:focus{
+    color: #771010;
+    transition: all .35s;
+}
+
+.h2-red {
+    color: #771010;
+    font-weight: bold;
+}
+
+.field {
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.links-signup{
+    padding: 15px;
+}
+
+#profile-pic{
+    height: 300px;
+    width: 200px;
+}
+
+.list-group-item{
+    background-color:#ddd;
+    color:#771010;
+}
+
+#pencil {
+    margin-bottom: 30px;
+}
+
+#one-comment{
+    margin-bottom: 10px;
+}
+
+#comment-links:hover{
+    color:#337ab7;
+}
 
 html,
 body {
@@ -54,7 +135,7 @@ body {
 
 body {
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    background-color: #282828;
+    background-color: #8e8787;
     color: #d3d3d3;
     webkit-tap-highlight-color: #222;
 }
@@ -377,7 +458,7 @@ header .header-content .inner p {
 }
 
 footer {
-    background-color:#e2afaf;
+    background-color:#337ab7;
 }
 
 @media(min-width:768px) {

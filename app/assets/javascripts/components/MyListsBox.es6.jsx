@@ -50,14 +50,16 @@ class MyListsBox extends React.Component{
   render(){
     return(
       <div>
-        <form ref='form' onSubmit={this.submitForm.bind(this)} onChange={this.selectedList.bind(this)}>
-            <select ref='select'>
-              {this.state.myLists.map( (list, i) => {
-              return(<option ref={1} key={i} value={list.id}>{list.title}</option>)
-              })
-            }
-            </select>
-            <input type="submit" value="Add" />
+        <form className="form-inline" ref='form' onSubmit={this.submitForm.bind(this)} onChange={this.selectedList.bind(this)}>
+            <div className="form-group">
+              <select className="form-control" ref='select'>
+                {this.state.myLists.map( (list, i) => {
+                return(<option ref={1} key={i} value={list.id}>{list.title}</option>)
+                })
+              }
+              </select>
+            </div>
+            <button className="btn btn-success" type='submit'>Add</button>
         </form>
            {this.state.showMessage ?
             <p><span>{this.state.restaurant.name} has been added to {this.refs.select.selectedOptions[0].text}</span></p>
