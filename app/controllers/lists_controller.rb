@@ -86,6 +86,14 @@ class ListsController < ApplicationController
     render 'index.json.jbuilder'
   end
 
+  def glistsnew
+    group = Group.find(params[:id])
+    @list = group.lists.new(list_params)
+    if @list.save
+      render json: @list
+    end
+  end
+
   private
   def list_params
     params.require(:list).permit(:id, :title)
