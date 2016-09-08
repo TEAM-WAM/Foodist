@@ -11,4 +11,14 @@ class ListRestaurantsController < ApplicationController
 
   end
 
+  def update
+    list_restaurant = ListRestaurant.find(params[:list_restaurant][:id])
+    if params[:updating] == "tried" && !list_restaurant.tried && list_restaurant.list.listable == current_user
+      list_restaurant.update(tried: true)
+    else
+      list_restaurant.update(tried: false)
+    end
+    render json: list_restaurant
+  end
+
 end
