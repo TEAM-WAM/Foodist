@@ -66,7 +66,7 @@ class Votes extends React.Component {
   render() {
 
     return(
-      <div className="row-fluid">
+      <div className="row-fluid" id="vote-style">
       <h4>Votes: {this.state.votes}</h4>
         <div id='Votes'>
           <a onClick={this.handleUpClick} href="" className="glyphicon glyphicon-thumbs-up"></a> <br/>

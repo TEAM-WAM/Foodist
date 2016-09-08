@@ -4,9 +4,9 @@ class Comment extends React.Component{
     var link = '/profiles/' + this.props.data.user.profile_id
     return(
           <break>
-          <li className="list-group-item">
+          <li className="list-group-item" id="one-comment">
           <div>
-            <a href= {link}>{this.props.data.user.username}</a>
+            <a id="comment-links" href= {link}>{this.props.data.user.username}</a>
           </div>
           <div>
               {this.props.data.body}
