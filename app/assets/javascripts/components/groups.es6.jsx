@@ -30,7 +30,7 @@ class Groups extends React.Component {
 
     $.post('/groups', data)
       .done((response) => {
-        this.setState({groups: this.state.groups.concat([response.group])})
+        this.setState({groups: this.state.groups.concat(response)})
         this.refs.groupName.value = '';
         this.refs.groupDescription.vaule = ''
         this.setState({toggleForm: false});
