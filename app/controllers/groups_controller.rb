@@ -3,7 +3,9 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :add]
 
   def index
-    @groups = Group.all
+    @groups = Group.all.sort do |group1, group2|
+      group1.created_at <=> group2.created_at
+    end
   end
 
   def show
@@ -19,7 +21,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
-      redirect_to groups_path
+      render json: @group
     else
       render 'new'
     end

@@ -8,8 +8,17 @@ http://www.bootstrapzero.com
 @import url(https://fonts.googleapis.com/css?family=Questrial);
 @import url(http://fonts.googleapis.com/css?family=Dancing+Script:700);
 
+
 #searchbar-toggle.collapse {
     visibility: collapse;
+}
+#group-picture{
+  float: left;
+}
+
+#group-picture img {
+  height: 320px;
+  margin-left: 25%;
 }
 
 #div1 {
