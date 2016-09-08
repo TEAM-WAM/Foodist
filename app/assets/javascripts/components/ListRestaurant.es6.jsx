@@ -2,8 +2,38 @@ class ListRestaurant extends React.Component{
   constructor(){
     super();
     this.state = {
-      showChildren: false
+      showChildren: false,
+      experiences: []
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  componentDidMount(){
+    this.setState({experiences: this.props.data.experiences})
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+
+    var url = "/lists/"+ this.props.listId + "/list_restaurants/"+ this.props.data.list.id +"/list_experiences"
+    var form = this.refs.form
+    var data = {
+          data: {
+          date_of_experience: form.date.value,
+          main_dish: form.main_dish.value,
+          price: form.price.value,
+          party_size: form.party_size.value,
+          time_waiting: form.wait_time.value,
+          notes: form.notes.value,
+          list_restaurant_id: this.props.data.list.id
+                      }
+
+            }
+
+    $.post(url, data).done((response)=> {this.setState({experiences: this.state.experiences.concat(response)})}.bind(this))
+
+    form.reset()
+
   }
 
   toggleChildren(){
@@ -14,7 +44,7 @@ class ListRestaurant extends React.Component{
     var dataIdClass = "#" + dataId
     var link = "/restaurants/" + this.props.data.restaurant.id
     return(
-        <div className="row" draggable="true">
+        <div className="row">
 
           <div className="row content" id="list_r_values">
           {/* iterate this for field values  */}
@@ -68,9 +98,36 @@ class ListRestaurant extends React.Component{
               </div>
 
             </div>
-            {this.props.data.experiences.map((list_e, i)=>{
+            {this.state.experiences.map((list_e, i)=>{
               return(<ListExperience key={i}  data={list_e}/>)
             })}
+            <div className="row">
+              <form ref='form' onSubmit={this.handleSubmit.bind(this)}>
+                <div className="col-xs-2 form">
+                  <input type="date" name="date" />
+                </div>
+                <div className="col-xs-2 form">
+                  <input type="text" name="main_dish" placeholder="Main Dish" />
+                </div>
+                <div className="col-xs-2 form">
+                  <input type="text" name="price" placeholder="Price" />
+                </div>
+                <div className="col-xs-2 form">
+                  <input type="text" name="party_size" placeholder="Party Size" />
+                </div>
+                <div className="col-xs-2 form">
+                  <input type="text" name="wait_time" placeholder="Wait Time" />
+                </div>
+                <div className="col-xs-2 form">
+                  <input type="text" name="notes" placeholder="Notes" />
+                </div>
+                <div className="row">
+                </div>
+                <div className="row">
+                  <input type="submit" value="Add Experience" />
+                </div>
+              </form>
+            </div>
           </div>
         </div>
     )
