@@ -17,6 +17,7 @@ http://www.bootstrapzero.com
     border: 2px solid white;
     border-radius: 7%;
     list-style: none;
+    display: inline-block;
 }
 
 #div1 li {
@@ -28,7 +29,7 @@ http://www.bootstrapzero.com
     margin-right: 35%;
     margin-top: -7.1%;*/
     position: absolute;
-    right: 700px;
+    left: 700px;
     top: 135px;
 }
 
