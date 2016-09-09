@@ -57,11 +57,11 @@ class ListRestaurant extends React.Component{
   }
 
   render(){
-    var dataId = "experiences" + this.props.dataId
+    var dataId = "experiences" + this.props.data.id
     var dataIdClass = "#" + dataId
     var link = "/restaurants/" + this.props.data.restaurant.id
     return(
-        <div className="row">
+        <div className="row exp-width-change" id="exp-margin">
 
           <div className="row content" id="list_r_values">
           {/* iterate this for field values  */}
