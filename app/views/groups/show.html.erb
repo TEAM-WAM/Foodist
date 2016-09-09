@@ -6,16 +6,13 @@
       <%= image_tag @group.avatar.url %>
     </div>
 
-  <h1><%= @group.name %></h1>
+    <h1><%= @group.name %></h1>
 
-  <b>Created by:  <strong><%= User.find(@group.creator_id).username %></strong></b>
+    <b>Created by:  <strong><%= User.find(@group.creator_id).username %></strong></b>
 
-  <p><b>Group Description:</b>  <%= @group.description %></p>
+    <p><b>Group Description:</b> <%= @group.description %></p>
 
-
-        <p><b>Group Description:</b> <%= @group.description %></p>
-
-        <b>Members: </b><em><%= @group.members.count %></em><br><br>
+    <b>Members: </b><em><%= @group.members.count %></em><br><br>
 
     <% if user_signed_in? %>
       <% if current_user.id != @group.creator_id %>
@@ -33,6 +30,13 @@
 
   <%= react_component 'GroupList', {group: @group} %>
 
-  </section>
-
-</div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  </div>
+</section>
