@@ -18,7 +18,7 @@ http://www.bootstrapzero.com
 
 #group-picture img {
   height: 320px;
-  margin-left: 25%;
+  /*margin-left: 25%;*/
 }
 
 #div1 {
@@ -42,12 +42,12 @@ http://www.bootstrapzero.com
     margin-top: -7.1%;*/
     position: absolute;
     left: 700px;
-    top: 135px;
+    top: 100px;
 }
 
 #restaurant-search {
   margin-left: 5%;
-  margin-top: 8%;
+  /*margin-top: 8%;*/
   width: 40%
 }
 

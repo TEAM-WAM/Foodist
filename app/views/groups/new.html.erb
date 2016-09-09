@@ -17,30 +17,9 @@
         </div>
       <% end %>
 
-<<<<<<< 287cd0bf97f29fa24c586028adf8735ef51e62ab
-    <%= react_component 'Groups' %>
-
-      <%= form_for @group, html: { multipart: true } do |f| %>
+  <%= form_for @group, html: { multipart: true } do |f| %>
         <%= f.label :name %>
         <%= f.text_field :name, :class => "form-control" %><br>
-=======
-    <% if @group.errors.any? %>
-      <div id='error_explanation'>
-        <h2>
-          <%= pluralize(@group.errors.count, 'error') %> prohibited this article from being saved:
-        </h2>
-        <ul>
-          <% @group.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-  <%= form_for @group, html: { multipart: true } do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
->>>>>>> group can create lists but doesnt show
 
         <%= f.label :description %>
         <%= f.text_area :description, :class => "form-control" %><br>
@@ -51,12 +30,7 @@
         <%= f.file_field :avatar, :class => "form-control" %><br>
 
         <%= f.submit 'Create Group', :class => "btn btn-danger" %>
-
-<<<<<<< 287cd0bf97f29fa24c586028adf8735ef51e62ab
-      <% end %>
-=======
   <% end %>
->>>>>>> group can create lists but doesnt show
 
     </div>
   </div>
