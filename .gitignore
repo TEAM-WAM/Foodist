@@ -17,4 +17,4 @@
 .byebug_history
 
 # Ignore Zomato API module 
-lib/zomato.rb
+lib/zomato.rb.tmp
