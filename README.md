@@ -1,23 +1,5 @@
 # TEAM WAM
 
-We like food and making lists so we made Foodist.
+We like food and making lists, so naturally, we made Foodist.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Foodist is a RoR app created with Ruby version 2.2.2 and Rails 5.0.0.
