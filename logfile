@@ -14,3 +14,4 @@ LOG:  autovacuum launcher started
 LOG:  database system is ready to accept connections
 FATAL:  database "Foodist_development" does not exist
 FATAL:  database "Foodist_development" does not exist
+
