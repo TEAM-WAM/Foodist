@@ -19,7 +19,6 @@
 //= require ReactDnDHTML5Backend.min.js
 //= require ReactDnD
 //= require components
-
 //= require_tree .
 
 
@@ -48,7 +47,6 @@
     });
 
     $('.navbar-collapse ul li a').click(function() {
-        /* always close responsive nav after click */
         $('.navbar-toggle:visible').click();
     });
 
