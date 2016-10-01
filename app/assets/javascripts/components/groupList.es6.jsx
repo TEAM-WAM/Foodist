@@ -43,12 +43,18 @@ class GroupList extends React.Component {
         }</a></h3>
 
         {this.state.toggleForm ?
-          <form onSubmit={this.handleGroupList.bind(this)}>
-            Title:<br/>
-            <input ref='groupListTitle' type='text' name='title'/><br/><br/>
-            <input type='submit' name='Create Group List'/><br/>
-          </form>
-          : null
+          <div className="row">
+            <div className="col-lg-4 col-lg-offset-6">
+              <form id="new-group-form" className="form-group" onSubmit={this.handleGroupList.bind(this)}>
+                Title:<br/>
+                <input className="form-control" ref='groupListTitle' type='text' name='title'/><br/><br/>
+                <button className="btn btn-danger" type='submit'>Create Group List</button><br/>
+              </form>
+            </div>
+          </div>
+          : <div className="row">
+
+          </div>
         }
         <Lists url={groupListUrl} />
       </div>

@@ -11,13 +11,13 @@ class ListExperience extends React.Component{
         {this.props.data.main_dish}
       </div>
       <div className="col-xs-2 values">
-        {this.props.data.price}
+        ${this.props.data.price}
       </div>
       <div className="col-xs-2 values">
         {this.props.data.party_size}
       </div>
       <div className="col-xs-2 values">
-        {this.props.data.time_waiting}
+        {this.props.data.time_waiting} min
       </div>
       <div className="col-xs-2 values">
         {this.props.data.notes}

@@ -18,8 +18,8 @@ amir = User.create!(username: "atawfik", first_name: "Amir", last_name: "Tawfik"
 myra = User.create!(username: "momo", first_name: "Myra", last_name: "Orgain", password: "123456", email: "myra@gmail.com")
 walter = User.create!(username: "wchabla", first_name: "Walter", last_name: "Chabla", password: "mr.white", email: "walter@gmail.com")
 
-# Create 20 random users
-20.times do
+# Create 30 random users
+30.times do
      User.create!(username: Faker::Internet.user_name, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "password", email: Faker::Internet.email)
 end
 
@@ -66,9 +66,6 @@ amirsowl = Restaurant.create!( name: "Amir's SowlFood",
                     )
 
 # Seed featured restaurants
-# require_relative '../lib/api.rb'
-# include Zomato
-
 featured_restaurants = Zomato::API.new
 featured_restaurants.request_data(280, 'city', '1')
 

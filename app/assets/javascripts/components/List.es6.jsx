@@ -19,7 +19,11 @@ constructor(){
   }
 
   toggleEdit(){
+
     this.setState({showEditList: !this.state.showEditList})
+    if(this.state.showEditList){
+      this.refs.listTitle.title.focus()
+    }
   }
 
   editListTitle(e){
@@ -54,7 +58,7 @@ constructor(){
               {this.state.showEditList ?
                 <h2><strong>
                   <form ref="listTitle" onSubmit={this.editListTitle.bind(this)}>
-                    <input type="text" name="title" placeholder={this.state.currentList.title} />
+                    <input type="text" name="title" defaultValue={this.state.currentList.title} onfocusout={this.toggleChildren.bind(this)}/>
                   </form>
                 </strong></h2>
                 :
@@ -66,7 +70,7 @@ constructor(){
             </div>
           </div>
           <div className="row">
-            <a href={dataIdClass} data-toggle="collapse" onClick={this.toggleChildren.bind(this)}>
+            <a href={dataIdClass} data-toggle="collapse" onClick={this.toggleChildren.bind(this)} >
               {this.state.showChildren ?
                 <i className="glyphicon glyphicon-chevron-up"></i> :
                 <i className="glyphicon glyphicon-chevron-down"></i>

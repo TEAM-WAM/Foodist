@@ -18,7 +18,7 @@ http://www.bootstrapzero.com
 
 #group-picture img {
   height: 320px;
-  margin-left: 25%;
+  /*margin-left: 25%;*/
 }
 
 #div1 {
@@ -42,12 +42,12 @@ http://www.bootstrapzero.com
     margin-top: -7.1%;*/
     position: absolute;
     left: 700px;
-    top: 135px;
+    top: 100px;
 }
 
 #restaurant-search {
   margin-left: 5%;
-  margin-top: 8%;
+  /*margin-top: 8%;*/
   width: 40%
 }
 
@@ -96,6 +96,21 @@ http://www.bootstrapzero.com
 #close-search:focus{
     color: #771010;
     transition: all .35s;
+}
+
+#new-group-form{
+    padding-left: 49px;
+    margin-top: -40px;
+}
+
+.exp-width-change {
+    width: 90%;
+    /*padding-right: 20px;*/
+    /*margin-right: 0;*/
+}
+
+#exp-margin {
+    margin: auto;
 }
 
 .h2-red {
@@ -356,7 +371,7 @@ footer {
     padding-bottom: 20px;
     font-size: 20px;
     width: 1210px;
-    margin-left: .9px;
+    margin-left: -59px;
 }
 
 #centered-trending{
