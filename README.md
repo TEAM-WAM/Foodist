@@ -1,3 +1,5 @@
+![travis test](https://travis-ci.org/TEAM-WAM/Foodist.svg?branch=master)
+
 # TEAM WAM
 
 We like food and making lists, so naturally, we made Foodist.
