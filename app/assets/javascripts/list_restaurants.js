@@ -21,7 +21,7 @@ function drop(ev) {
       restaurant_id: element,
       list_id: listId
     }
-    // debugger;
+
     var url = "/lists/" + data.list_id + "/list_restaurants"
     $.post(url, data)
       .done((response) => {
